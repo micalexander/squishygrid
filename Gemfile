@@ -3,7 +3,7 @@
 source 'http://rubygems.org'
 ruby "2.2.0"
 
-gem "rack-livereload", :group   => :development
+# gem "rack-livereload", :group   => :development
 gem 'sinatra',         :require => 'sinatra/base'
 gem 'sinatra-param'
 gem 'sinatra-support', :require => 'sinatra/support'
