@@ -1,7 +1,7 @@
 require 'mina/bundler'
 require 'mina/rails'
 require 'mina/git'
-# require 'mina/rbenv'  # for rbenv support. (http://rbenv.org)
+require 'mina/rbenv'  # for rbenv support. (http://rbenv.org)
 # require 'mina/rvm'    # for rvm support. (http://rvm.io)
 
 # Basic settings:
@@ -32,7 +32,7 @@ set :shared_paths, ['config/database.yml', 'log']
 task :environment do
   # If you're using rbenv, use this to load the rbenv environment.
   # Be sure to commit your .ruby-version or .rbenv-version to your repository.
-  # invoke :'rbenv:load'
+  invoke :'rbenv:load'
 
   # For those using RVM, use this to load an RVM version@gemset.
   # invoke :'rvm:use[ruby-1.9.3-p125@default]'
@@ -43,7 +43,7 @@ end
 # all releases.
 task :setup => :environment do
 
-  queue! %[mkdir -p "#{deploy_to}/log"]
+  queue! %[mkdir -p "#{deploy_to}/#{shared_path}/log"]
 
   # queue! %[mkdir -p "#{deploy_to}/#{shared_path}/config"]
   # queue! %[chmod g+rx,u+rwx "#{deploy_to}/#{shared_path}/config"]

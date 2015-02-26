@@ -16,3 +16,4 @@
 
 # Ignore Puma 
 tmp/puma/*
+config/deploy.rb
