@@ -30,12 +30,7 @@ set :shared_paths, ['config/database.yml', 'log']
 # This task is the environment that is loaded for most commands, such as
 # `mina deploy` or `mina rake`.
 task :environment do
-  # If you're using rbenv, use this to load the rbenv environment.
-  # Be sure to commit your .ruby-version or .rbenv-version to your repository.
   invoke :'rbenv:load'
-
-  # For those using RVM, use this to load an RVM version@gemset.
-  # invoke :'rvm:use[ruby-1.9.3-p125@default]'
 end
 
 # Put any custom mkdir's in here for when `mina setup` is ran.
@@ -44,12 +39,11 @@ end
 task :setup => :environment do
 
   queue! %[mkdir -p "#{deploy_to}/#{shared_path}/log"]
+  queue! %[chmod g+rx,u+rwx "#{deploy_to}/shared/log"]
 
-  # queue! %[mkdir -p "#{deploy_to}/#{shared_path}/config"]
-  # queue! %[chmod g+rx,u+rwx "#{deploy_to}/#{shared_path}/config"]
+  queue! %[mkdir -p "#{deploy_to}/shared/tmp"]
+  queue! %[chmod g+rx,u+rwx "#{deploy_to}/shared/tmp"]
 
-  # queue! %[touch "#{deploy_to}/#{shared_path}/config/database.yml"]
-  # queue  %[echo "-----> Be sure to edit '#{deploy_to}/#{shared_path}/config/database.yml'."]
 end
 
 desc "Deploys the current version to the server."
@@ -60,14 +54,39 @@ task :deploy => :environment do
     invoke :'git:clone'
     invoke :'deploy:link_shared_paths'
     invoke :'bundle:install'
-    # invoke :'rails:db_migrate'
-    # invoke :'rails:assets_precompile'
     invoke :'deploy:cleanup'
 
     to :launch do
-      queue "mkdir -p #{deploy_to}/#{current_path}/tmp/"
-      queue "touch #{deploy_to}/#{current_path}/tmp/restart.txt"
+      invoke :restart
     end
+  end
+end
+
+desc "Restart the server."
+task :restart => :environment do
+  in_directory "#{deploy_to}/#{current_path}" do
+    queue "bundle exec puma -C config/puma.rb -p 4567 -d restart"
+  end
+end
+
+desc "Start the server."
+task :start => :environment do
+  in_directory "#{deploy_to}/#{current_path}" do
+    queue "bundle exec puma -C config/puma.rb -p 4567 -d start"
+  end
+end
+
+desc "Stop the server."
+task :stop => :environment do
+  in_directory "#{deploy_to}/#{current_path}" do
+    queue "bundle exec puma -C config/puma.rb -p 4567 -d stop"
+  end
+end
+
+desc "Report server process id"
+task :info => :environment do
+  in_directory "#{deploy_to}/#{shared_path}" do
+    queue "print 'Server running with pid:' `cat tmp/pids/puma.pid`"
   end
 end
 
