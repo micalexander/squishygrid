@@ -1,0 +1,148 @@
+
+@mixin font-size-rem($size: 1.6){
+  font-size: ($size * 10 + 5) + px;
+  font-size: $size + rem;
+}
+
+@mixin line-height-rem($size: 1.6){
+  line-height: ($size * 10 + 5) + px;
+  line-height: $size + rem;
+}
+
+body,select,input,textarea{color:#333;}
+
+* {
+ @include selection(#fff, #f9c3d0)
+}
+
+
+body {
+	color: $body-color;
+	font-size: 100%;
+	font-weight: normal;
+	line-height: 150%;
+	font-family: $body-font;
+}
+a {
+	color: $link-color;
+	font-size: 1em;		/* 16x1=16 */
+	font-family: $body-font;
+	text-decoration: none;
+	&:hover{
+		color: $link-hover;
+	}
+}
+h1 {
+	margin: 0 0 10px 0;
+	color: #f9c3d0;
+	font-family: $heading-font;
+	font-weight: 700;
+  text-shadow:
+       3px 3px 0 #8d5244,
+     -1px -1px 0 #8d5244,
+      1px -1px 0 #8d5244,
+      -1px 1px 0 #8d5244,
+       1px 1px 0 #8d5244;
+	letter-spacing: -0.03em;
+	@include font-size-rem(.8);
+	@include mobile() {
+		margin: 0 0 10px 0;
+		@include font-size-rem(6.2);
+		@include line-height-rem(6.6);
+	}
+	@include tablet(ge) {
+		@include font-size-rem(8.2);
+		@include line-height-rem(8.6);
+	}
+
+}
+h2 {
+	margin: 0 0 60px 0;
+	color: $heading-color;
+	font-family: $heading-font;
+	font-weight: 700;
+	@include mobile() {
+		@include font-size-rem(1.6);
+		@include line-height-rem(2);
+	}
+	@include tablet(ge) {
+		@include font-size-rem(2.8);
+		@include line-height-rem(3);
+	}
+}
+h3 {
+	margin: 0 0 20px 0;
+	padding-bottom: 20px;
+	color: $heading-color;
+	font-family: $heading-font;
+	font-weight: 700;
+	border-bottom: 1px solid rgba(140, 82, 69, 0.3);
+	@include mobile() {
+		@include font-size-rem(2);
+		@include line-height-rem(2.2);
+	}
+	@include tablet(ge) {
+		@include font-size-rem(2);
+		@include line-height-rem(2.2);
+	}
+}
+h4 {
+	margin-bottom: 20px;
+	font-size: 1.2em; /* 16x0.875=19.2 */
+	font-weight: 600;
+	line-height: 1em; /* 24px */
+	color: $heading-color;
+	&.i {
+		font-weight: 600;
+		&:before {
+			font-weight: 300;
+		}
+
+	}
+}
+p {
+	font-weight: 300;
+	padding-bottom: 1em;
+	@include font-smoothing();
+	@include font-size-rem(1.2);
+	@include line-height-rem(1.7);
+	@include breakpoint( tablet ) {
+		padding-bottom: 1.3em;
+	}
+	@include breakpoint(desktop) {
+		padding-bottom: 1.3em;
+		@include font-size-rem(1.4);
+		@include line-height-rem(1.9);
+	}
+}
+ul {
+	list-style: disc;
+	margin: 0 0 0 1.1em;
+	padding-bottom: 1em;
+	li {
+		font-weight: 300;
+	}
+	nav & { // remove styling for nav ul's
+		list-style: none;
+		margin: 0;
+		padding-bottom: 0;
+		a { text-decoration: none; }
+	}
+}
+ol {
+	list-style: decimal;
+	margin: 0 0 1em 2em;
+	li { margin: .5em 0; }
+	ol { list-style: lower-alpha; }
+}
+blockquote {
+	padding-bottom: 1.3em;
+	@include font-size-rem(1.9);
+	@include line-height-rem(2.4);
+	.credit {
+		margin-top: 20px;
+		padding-left: 170px;
+		@include font-size-rem(1.1);
+		@include line-height-rem(1.1);
+	}
+}

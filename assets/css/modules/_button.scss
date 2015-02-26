@@ -1,0 +1,42 @@
+.button {
+  position: relative;
+  cursor: pointer;
+  height: 52.5px;
+  margin-top: 0;
+  list-style-type: none;
+  a,
+  button,
+  button[type="submit"] {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 10px;
+    color: #b1c2d2;
+    text-align: left;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+    font-size: 18px;
+    background: #ddeeff;
+    border: 1px solid #d3e2f6;
+    @include border-radius();
+    @include transition(all .2s);
+    @include box-shadow(0px 5px 0px #b1c2d2);
+    &.i {
+      padding: 10px 10px 10px 70px;
+      &:before {
+        left: 15px;
+        color: #b1c2d2;
+        font-size: 22px;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+      }
+    }
+    &:hover {
+      top: 3px;
+      @include box-shadow(0px 2px 0px #b1c2d2);
+      &.i:before {
+        color: #fff;
+        text-shadow: 0px 0px 3px #fff;
+      }
+    }
+  }
+}

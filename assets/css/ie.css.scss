@@ -1,0 +1,31 @@
+/* IE<9 Overrides */
+@import "framework/swift-framework";
+@import "compass/css3/pie";
+
+
+// -------------------------------------------------
+// SASS-y IE Specific
+// ---------------------------------------------- */
+$shadow_alt: #333;
+$pie-behavior: url(/js/framework/PIE.php); // BE SURE TO UPDATE THIS PATH
+
+@mixin shadow-replace {
+	border-bottom: 1px solid $shadow_alt;
+}
+
+
+/* -------------------------------------------------
+** IE<9
+** ---------------------------------------------- */
+.lt-ie9 {
+
+} //end .lt-ie9
+
+
+/* -------------------------------------------------
+** IE<8
+** ---------------------------------------------- */
+.lt-ie8 {
+	//Hack for IE7 and lower box-sizing
+	* { box-sizing: border-box; *behavior: url(/js/framework/boxsizing.htc); }
+} //end .lt-ie8

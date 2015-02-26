@@ -1,0 +1,27 @@
+/ h2
+/ 	| Generator
+/ .grid.wrapper.generator
+/ 	.grid
+/ 		.unit.span-1-of-4
+/ 			form.generate.compact.unit.span-1-of-1 action="/generator" method="post"
+/ 				.units.unit.span-1-of-1
+/ 					/ label.unit.span-1-of-1 for="units"
+/ 					input#units type="text" name="units" placeholder="Units: 12"/
+/ 				.margin.unit.span-1-of-1
+/ 					/ label.unit.span-1-of-1 for="margin"
+/ 					input#margin type="text" name="margin" placeholder="Margin: 2.5"/
+/ 				.breakpoint.unit.span-1-of-1
+/ 					/ label.unit.span-1-of-1 for="breakpoint"
+/ 					input#breakpoint type="text" name="breakpoint" placeholder="Breakpoint: 420"/
+/ 				.output.unit.span-1-of-1
+/ 				  / label.unit.span-1-of-1 for="output"
+/ 				  select#output name="output"
+/ 				    option value="sass"  SASS
+/ 				    option value="css"  CSS
+/ 				.submit.unit.span-1-of-1.button
+/ 				  button.i.fa-paint-brush type="submit"
+/ 				  	| Create
+- if defined? value
+	.grid-output.unit.span-3-of-4
+		== glorify value[0], fenced_code_blocks: 'enabled', line_numbers: true, wrap: true
+		== glorify value[1], fenced_code_blocks: 'enabled', line_numbers: true, wrap: true

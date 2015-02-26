@@ -1,0 +1,344 @@
+.header
+.region.introduction
+  .intro
+    .text
+      h1 Squishygrid
+      h2 A fluid responsive grid system
+      p
+        | Squishy, lightweight, and easy to use, Squishygrid is powerful grid designed with flexibility in mind. Generate you own below.
+    .mascot-wrapper
+      img.mascot alt="" src="https://dl.dropboxusercontent.com/u/21649973/squishy.png" /
+  nav
+    ul.actions
+      li.action.button.use-it
+        a.core-scroll-link.fa-cloud-download.i href="#how-it-works"
+          | Use it
+      li.action.button.fork-it
+        a.fa-github.i href="https://github.com/micalexander/"
+          | Fork it
+      li.action.button.share-it
+        a.fa-share.i href="/"
+          | Share it
+.region.featured
+  .get-it-now
+    h3 Get it now!
+    .generate-unit
+      h4.i.fa-paint-brush Create your own
+      .form-wrapper
+        form#get-grid.generate.compact action="/generator" method="post"
+          .units
+            input#units type="text" name="units" placeholder="Units: 12"/
+          .margin
+            input#margin type="text" name="margin" placeholder="Margin: 2.5"/
+          .breakpoint
+            input#breakpoint type="text" name="breakpoint" placeholder="Breakpoint: 420"/
+          .output
+            select#output name="output"
+              option value="css"  CSS
+              option value="sass" SASS
+              option value="less" LESS
+          .mixin
+            span Mixin Version Only?
+            input#mixin (type="checkbox" name="mixin" checked) /
+            label for="mixin"
+          .submit.button
+            button.i.fa-gears type="submit"
+              | Create
+    .html-block
+      h4.i.fa-html5 HTML
+      .rendered.html
+        button#html-copy-button.i.fa-clipboard data-clipboard-text="" title="Click to copy to clipboard"  Copy to Clipboard
+        .container
+          .loader
+    .css-block
+      h4.i.fa-css3 CSS/SASS/LESS
+      .rendered.styles
+        button#styles-copy-button.i.fa-clipboard data-clipboard-text="" title="Click to copy to clipboard"  Copy to Clipboard
+        .container
+          .loader
+.region.highlighted
+  h3 Example
+  form.grid-settings.no-mobile action=""
+    span.aloof aloof
+    input#grid_type (name="type" type="checkbox" value="normal" checked) /
+    label for="grid_type"
+    span.chummy chummy
+  .squishy.preview
+    .wrapper
+      .grid
+        .unit.span-1-of-1
+          | 1 of 1
+    .wrapper
+      .grid
+        .unit.span-1-of-2
+          | 1 of 2
+        .unit.span-1-of-2
+          | 1 of 2
+    .wrapper
+      .grid
+        .unit.span-1-of-3
+          | 1 of 3
+        .unit.span-1-of-3
+          | 1 of 3
+        .unit.span-1-of-3
+          | 1 of 3
+    .wrapper.no-mobile
+      .grid
+        .unit.span-1-of-4
+          | 1 of 4
+        .unit.span-1-of-4
+          | 1 of 4
+        .unit.span-1-of-4
+          | 1 of 4
+        .unit.span-1-of-4
+          | 1 of 4
+    .wrapper.no-mobile
+      .grid
+        .unit.span-1-of-5
+          | 1 of 5
+        .unit.span-1-of-5
+          | 1 of 5
+        .unit.span-1-of-5
+          | 1 of 5
+        .unit.span-1-of-5
+          | 1 of 5
+        .unit.span-1-of-5
+          | 1 of 5
+    .wrapper.no-mobile
+      .grid
+        .unit.span-1-of-6
+          | 1 of 6
+        .unit.span-1-of-6
+          | 1 of 6
+        .unit.span-1-of-6
+          | 1 of 6
+        .unit.span-1-of-6
+          | 1 of 6
+        .unit.span-1-of-6
+          | 1 of 6
+        .unit.span-1-of-6
+          | 1 of 6
+    .wrapper.no-mobile.no-tablet
+      .grid
+        .unit.span-1-of-7
+          | 1 of 7
+        .unit.span-1-of-7
+          | 1 of 7
+        .unit.span-1-of-7
+          | 1 of 7
+        .unit.span-1-of-7
+          | 1 of 7
+        .unit.span-1-of-7
+          | 1 of 7
+        .unit.span-1-of-7
+          | 1 of 7
+        .unit.span-1-of-7
+          | 1 of 7
+    .wrapper.no-mobile.no-tablet
+      .grid
+        .unit.span-1-of-8
+          | 1 of 8
+        .unit.span-1-of-8
+          | 1 of 8
+        .unit.span-1-of-8
+          | 1 of 8
+        .unit.span-1-of-8
+          | 1 of 8
+        .unit.span-1-of-8
+          | 1 of 8
+        .unit.span-1-of-8
+          | 1 of 8
+        .unit.span-1-of-8
+          | 1 of 8
+        .unit.span-1-of-8
+          | 1 of 8
+    .wrapper.no-mobile.no-tablet
+      .grid
+        .unit.span-1-of-9
+          | 1 of 9
+        .unit.span-1-of-9
+          | 1 of 9
+        .unit.span-1-of-9
+          | 1 of 9
+        .unit.span-1-of-9
+          | 1 of 9
+        .unit.span-1-of-9
+          | 1 of 9
+        .unit.span-1-of-9
+          | 1 of 9
+        .unit.span-1-of-9
+          | 1 of 9
+        .unit.span-1-of-9
+          | 1 of 9
+        .unit.span-1-of-9
+          | 1 of 9
+    .wrapper.no-mobile.no-tablet
+      .grid
+        .unit.span-1-of-10
+          | 1 of 10
+        .unit.span-1-of-10
+          | 1 of 10
+        .unit.span-1-of-10
+          | 1 of 10
+        .unit.span-1-of-10
+          | 1 of 10
+        .unit.span-1-of-10
+          | 1 of 10
+        .unit.span-1-of-10
+          | 1 of 10
+        .unit.span-1-of-10
+          | 1 of 10
+        .unit.span-1-of-10
+          | 1 of 10
+        .unit.span-1-of-10
+          | 1 of 10
+        .unit.span-1-of-10
+          | 1 of 10
+    .wrapper.no-mobile.no-tablet
+      .grid
+        .unit.span-1-of-11
+          | 1 of 11
+        .unit.span-1-of-11
+          | 1 of 11
+        .unit.span-1-of-11
+          | 1 of 11
+        .unit.span-1-of-11
+          | 1 of 11
+        .unit.span-1-of-11
+          | 1 of 11
+        .unit.span-1-of-11
+          | 1 of 11
+        .unit.span-1-of-11
+          | 1 of 11
+        .unit.span-1-of-11
+          | 1 of 11
+        .unit.span-1-of-11
+          | 1 of 11
+        .unit.span-1-of-11
+          | 1 of 11
+        .unit.span-1-of-11
+          | 1 of 11
+    .wrapper.no-mobile.no-tablet
+      .grid
+        .unit.span-1-of-12
+          | 1 of 12
+        .unit.span-1-of-12
+          | 1 of 12
+        .unit.span-1-of-12
+          | 1 of 12
+        .unit.span-1-of-12
+          | 1 of 12
+        .unit.span-1-of-12
+          | 1 of 12
+        .unit.span-1-of-12
+          | 1 of 12
+        .unit.span-1-of-12
+          | 1 of 12
+        .unit.span-1-of-12
+          | 1 of 12
+        .unit.span-1-of-12
+          | 1 of 12
+        .unit.span-1-of-12
+          | 1 of 12
+        .unit.span-1-of-12
+          | 1 of 12
+        .unit.span-1-of-12
+          | 1 of 12
+.region.featured
+  .how-it-works
+    h3 How it works
+    .magic
+      h4.i.fa-magic The Magic
+      .squishy-selectors.one
+        h5 Step 1: Make is squishy
+        .text.i.fa-columns
+          markdown:
+            Add a `grid` class selector to the parent elements that contains the elements you wish to squish.
+        .output
+          markdown:
+            ```html
+            <div class="grid">
+              ...
+            </div>
+            ```
+      .squishy-selectors.two
+        h5 Step 2: Add some friends
+        .text.i.fa-group
+          markdown:
+            Add a `span[x]-of-[y]` class selector to each of the children elements within the `grid` element.
+          markdown:
+            *The `[x]` represents the total number of columns it should take up, and the `[y]` represents the total numbers of columns that are available.*
+        .output
+          markdown:
+            ```html
+            <div class="grid">
+              <div class="span-1-of-3">
+              </div>
+              <div class="span-1-of-3">
+              </div>
+              <div class="span-1-of-3">
+              </div>
+            </div>
+            ```
+      .squishy-selectors.three
+        h5 Step 3: Teach them tricks
+        .text.i.fa-send-o
+          markdown:
+            To offset (i.e. push a unit to the right), simply add a class of `offset-[x]-of-[y]` to it.
+        .output
+          markdown:
+            ```html
+            <div class="grid">
+              <div class="span-1-of-3">
+              </div>
+              <div class="span-1-of-3 offset-1-of-3">
+              </div>
+            </div>
+            ```
+      .squishy-selectors.four
+        h5 Step 4: Play nice
+        .text.i.fa-gamepad
+          markdown:
+            Remove margins by adding a `compact` class to the parent element that contains the `span[x]-of-[y]`.
+        .output
+          markdown:
+            ```html
+            <div class="grid compact">
+              ...
+            </div>
+            ```
+  .advanced-use
+    h3 Mixin Versions
+    h4.i.fa-flask Mix it up!
+    p.bottom
+      | Squishygrid also comes in a "Mixin Version". One of the main benefits of using the Mixin Version is the ability to use Squishygrid without having to add any additional class selectors to your HTML markup. This means that you can take full advantage of Squishygrid by using SASS/LESS only.
+    .mixin-use
+      h4.i.fa-file-code-o SASS
+      markdown:
+        SASS anyone? Well Squishygrid comes is sassy right out of the box. You can [download a SASS version here](http://micalexander.com).
+      markdown:
+        There are three Mixins that make up the SASS Mixin version of Squishygrid, and they are:
+      markdown:
+        ```sass @include grid([$margin-left]);```
+        ```text Default: $margin-left: 2.5%. Excepts 0 or compact, to remove all margin. *Must pass unit type along with unit for example: @include grid(3%);```
+
+        ```sass @include span([$unit], [$span], [$margin-left], [$breakpoint]);```
+        ```text Defaults: $unit: 1, $span: 1, $margin-left: 2.5%, $breakpoint: 620px. Passing nothing will give you a unit that fills the grids' full width. *Must pass unit type along with unit for example: @include span(1,3,3%,768px);```
+
+        ```sass @include offset([$offset], [$amount], [$margin-left], [$breakpoint]);```
+        ```text Defaults: $offset: 0, $amount: 0, $margin-left: 2.5%, $breakpoint: 620px. *Must pass unit type along with unit for example: @include offset(1,3,3%,768px);```
+    .mixin-use
+      h4.i.fa-file-code-o LESS
+      markdown:
+        If LESS is your preference, worry not! You can [download a LESS version here](http://micalexander.com).
+      markdown:
+        There are three Mixins that make up the LESS Mixin version of Squishygrid, and they are:
+      markdown:
+        ```sass .grid([$margin-left]);```
+        ```text Default: $margin-left: 2.5%. Excepts 0 or compact, to remove all margin. *Must pass unit type along with unit for example: .grid(3%);```
+
+        ```sass .span([$unit], [$span], [$margin-left], [$breakpoint]);```
+        ```text Defaults: $unit: 1, $span: 1, $margin-left: 2.5%, $breakpoint: 620px. Passing nothing will give you a unit that fills the grids' full width. *Must pass unit type along with unit for example: .span(1,3,3%,768px);```
+
+        ```sass .offset([$offset], [$amount], [$margin-left], [$breakpoint]);```
+        ```text Defaults: $offset: 0, $amount: 0, $margin-left: 2.5%, $breakpoint: 620px. *Must pass unit type along with unit for example: .offset(1,3,3%,768px);```

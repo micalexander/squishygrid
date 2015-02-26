@@ -1,0 +1,40 @@
+.rendered {
+  position: relative;
+  height: 337px;
+  overflow: hidden;
+  @include border-radius();
+  button#html-copy-button,
+  button#styles-copy-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    padding: 5px 10px 5px 30px;
+    color: #b1c2d2;
+    font-size: 12px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+    white-space: nowrap;
+    background: #deeefe;
+    border: 1px solid #d3e2f6;
+    @include border-radius(0 5px 0 0);
+    @include font-smoothing();
+    &.i:before {
+      left: 10px;
+      color: #b1c2d2;
+    }
+    &.copied {
+      color: rgba(139, 211, 0, .7);
+      background: rgba(139, 211, 0, .3);
+      border: 1px solid rgba(139, 211, 0, .3);
+      &.i:before {
+        left: 10px;
+        color: rgba(139, 211, 0, .7);
+      }
+    }
+  }
+  .container {
+    height: 337px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+}

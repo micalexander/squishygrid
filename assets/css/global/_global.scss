@@ -1,0 +1,20 @@
+html {
+	min-height: 100%;
+	border-top: 10px solid #8c5245;
+	border-bottom: 70px solid #deeefe;
+  z-index: 5;
+}
+
+body {
+  position: relative;
+  padding: 40px 3% 0;
+  background: #fff5ee;
+  .wave {
+    position: absolute;
+    bottom: 0;
+  }
+  .region {
+    max-width: 2000px;
+    margin: 0 auto;
+  }
+}
