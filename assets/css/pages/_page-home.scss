@@ -27,6 +27,10 @@
           text-align: center;
           padding-left: 0;
         }
+        @include breakpoint(0,400px) {
+          @include font-size-rem(4.4);
+          @include line-height-rem(4.8);
+        }
       }
       h2 {
         padding-left: 5px;
@@ -41,14 +45,20 @@
         @include breakpoint(0,1000px) {
           margin-bottom: 20px;
           @include font-size-rem(2);
+          @include line-height-rem(2.4);
         }
         @include breakpoint(0,900px) {
           margin-bottom: 20px;
           @include font-size-rem(1.8);
+          @include line-height-rem(2);
         }
         @include breakpoint(0,700px) {
           text-align: center;
           padding-left: 0;
+        }
+        @include breakpoint(0,400px) {
+          @include font-size-rem(1.5);
+          @include line-height-rem(1.7);
         }
       }
       h3 {
@@ -320,36 +330,98 @@
   }
   footer.region {
     max-width: 100%;
-    min-height: 200px;
+    min-height: 150px;
+    padding: 0;
     background: #deeefe;
     .squishy-friends {
-      padding: 20px 0;
-      @include grid();
-      .friend {
-        @include span(1,4);
-        .icons-html5 {
-          height: 200px;
-          background: url(icons/html5.png) no-repeat 50% 50%;
-          background-size: contain;
-          // @include sprite-dimensions($icons-sprites, compass);
-        }
-        .icons-css3 {
-          height: 200px;
-          background: url(icons/css3.png) no-repeat 50% 50%;
-          background-size: contain;
-          // @include sprite-dimensions($icons-sprites, compass);
-        }
-        .icons-sass {
-          height: 200px;
-          background: url(icons/sass.png) no-repeat 50% 50%;
-          background-size: contain;
-          // @include sprite-dimensions($icons-sprites, sass);
-        }
-        .icons-less {
-          height: 200px;
-          background: url(icons/less.png) no-repeat 50% 50%;
-          background-size: contain;
-          // @include sprite-dimensions($icons-sprites, less);
+      max-width: 2000px;
+      margin: 0 auto;
+      padding: 20px 3%;
+      h5 {
+        text-transform: uppercase;
+        color: #b5dcfc;
+        margin-bottom: 30px;
+      }
+      .friends {
+        text-shadow: 0 2px 0 rgba(255, 255 ,255, .3);
+        @include grid();
+        .friend {
+          @include span(1,4);
+          @include breakpoint(0, 620px) {
+            margin-bottom: 40px;
+          }
+          .icon-html5 {
+            height: 125px;
+            padding: 0;
+            font-size: 105px;
+            line-height: 120px;
+            @include breakpoint(620px, 1000px) {
+              font-size: 80px;
+            }
+            &:before {
+              left: 50%;
+              margin-left: -70px;
+              color: #b5dcfc;
+              text-shadow: 0 2px 0 rgba(255, 255 ,255, .3);
+              @include breakpoint(620px, 1000px) {
+                margin-left: -40px;
+              }
+            }
+          }
+          .icon-css3 {
+            height: 125px;
+            padding: 0;
+            font-size: 105px;
+            line-height: 120px;
+            @include breakpoint(620px, 1000px) {
+              font-size: 80px;
+            }
+            &:before {
+              left: 50%;
+              margin-left: -70px;
+              color: #b5dcfc;
+              text-shadow: 0 2px 0 rgba(255, 255 ,255, .3);
+              @include breakpoint(620px, 1000px) {
+                margin-left: -40px;
+              }
+            }
+          }
+          .icon-sass {
+            height: 125px;
+            padding: 0;
+            font-size: 105px;
+            line-height: 120px;
+            @include breakpoint(620px, 1000px) {
+              font-size: 80px;
+            }
+            &:before {
+              left: 50%;
+              margin-left: -70px;
+              color: #b5dcfc;
+              text-shadow: 0 2px 0 rgba(255, 255 ,255, .3);
+              @include breakpoint(620px, 1000px) {
+                margin-left: -40px;
+              }
+            }
+          }
+          .icon-less {
+            height: 125px;
+            padding: 0;
+            font-size: 105px;
+            line-height: 120px;
+            @include breakpoint(620px, 1000px) {
+              font-size: 80px;
+            }
+            &:before {
+              left: 50%;
+              margin-left: -70px;
+              color: #b5dcfc;
+              text-shadow: 0 2px 0 rgba(255, 255 ,255, .3);
+              @include breakpoint(620px, 1000px) {
+                margin-left: -40px;
+              }
+            }
+          }
         }
       }
     }

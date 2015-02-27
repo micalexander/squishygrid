@@ -28,6 +28,8 @@ a {
 	font-size: 1em;		/* 16x1=16 */
 	font-family: $body-font;
 	text-decoration: none;
+	&:link{-webkit-tap-highlight-color: transparent;}
+	ins{background-color:transparent;color:$link-color;text-decoration:none;}
 	&:hover{
 		color: $link-hover;
 	}
