@@ -18,3 +18,34 @@ $fa-css-prefix: 'i';
     @include transition(all .2s);
   }
 }
+@font-face {
+  font-family: 'icomoon';
+  src:url('fonts/icomoon.eot?7asfll');
+  src:url('fonts/icomoon.eot?#iefix7asfll') format('embedded-opentype'),
+    url('fonts/icomoon.woff?7asfll') format('woff'),
+    url('fonts/icomoon.ttf?7asfll') format('truetype'),
+    url('fonts/icomoon.svg?7asfll#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.ico-moon {
+  position: relative;
+  padding-left: 30px;
+  font-weight: 300;
+  vertical-align: top;
+  line-height: 22px;
+  @include font-smoothing();
+  &:before {
+    font-family: 'icomoon';
+    position: absolute;
+    left: 0;
+    color: $link-color;
+    @include transition(all .2s);
+  }
+}
+
+.icon-micalexander:before {
+  content: "\e600";
+}
+

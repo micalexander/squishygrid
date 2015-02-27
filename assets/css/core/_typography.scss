@@ -52,7 +52,7 @@ h1 {
 	}
 	@include tablet(ge) {
 		@include font-size-rem(8.2);
-		@include line-height-rem(8.6);
+		@include line-height-rem(9);
 	}
 
 }
