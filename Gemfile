@@ -8,6 +8,7 @@ gem 'sinatra-param'
 gem 'sinatra-support', :require => 'sinatra/support'
 gem 'sinatra-asset-pipeline'
 gem 'sinatra-contrib'
+gem 'sinatra-partial'
 gem 'puma'
 
 # Adds Slim support for rapid development

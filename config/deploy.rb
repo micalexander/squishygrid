@@ -38,7 +38,7 @@ end
 # all releases.
 task :setup => :environment do
 
-  queue! %[mkdir -p "#{deploy_to}/#{shared_path}/log"]
+  # queue! %[mkdir -p "#{deploy_to}/#{shared_path}/log"]
 
 end
 
@@ -61,7 +61,7 @@ end
 desc "Restart the server."
 task :restart => :environment do
   in_directory "#{deploy_to}/#{current_path}" do
-    queue "bundle exec puma -C config/puma.rb -p 4567 -d restart"
+    queue " bundle exec pumactl -F config/puma.rb -p 4567 restart"
   end
 end
 

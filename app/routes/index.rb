@@ -4,13 +4,15 @@ module Squid
 
       configure do
 
-        set :show_exceptions, App.settings.show_exceptions
-        set :raise_errors,    App.settings.raise_errors
-        set :views,           App.settings.views
-        set :root,            App.settings.root
-        register              Sinatra::AssetPipeline
-        register              Sinatra::SquidHelpers
-        register              Sinatra::Glorify
+        set :show_exceptions,         App.settings.show_exceptions
+        set :raise_errors,            App.settings.raise_errors
+        set :views,                   App.settings.views
+        set :root,                    App.settings.root
+        set :partial_template_engine, :slim
+        register                      Sinatra::AssetPipeline
+        register                      Sinatra::SquidHelpers
+        register                      Sinatra::Glorify
+        register                      Sinatra::Partial
 
         Compass.configuration do |compass|
           compass.project_path = App.settings.assets_path

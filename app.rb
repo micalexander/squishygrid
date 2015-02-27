@@ -10,6 +10,7 @@ require 'squid/squidhelpers'
 require 'sinatra/base'
 require 'sinatra/asset_pipeline'
 require "sinatra/reloader"
+require 'sinatra/partial'
 require 'slim'
 require 'rouge'
 require 'glorify'

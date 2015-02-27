@@ -318,12 +318,12 @@ html { -webkit-text-size-adjust: none; }
 input[type=submit] { -webkit-appearance: none; -moz-appearance: none; }
 
 /* Media Queries for determining javascript events, via http://adactio.com/journal/5429/ */
-body:after { content: 'mobile'; height: 0; visibility: hidden; }
+body:after { content: 'mobile'; position: fixed; height: 0; visibility: hidden; z-index: -999999}
 @media only screen and (min-width: $tablet) and (max-width: $desktop - 1px) {
-  body:after { content: 'tablet';height: 0; visibility: hidden; }
+  body:after { content: 'tablet'; position: fixed; height: 0; visibility: hidden; z-index: -999999}
 }
 @media only screen and (min-width: $desktop) {
-	body:after { content: 'desktop';height: 0; visibility: hidden; }
+	body:after { content: 'desktop'; position: fixed; height: 0; visibility: hidden; z-index: -999999}
 }
 
 /*

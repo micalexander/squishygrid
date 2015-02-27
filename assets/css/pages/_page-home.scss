@@ -247,81 +247,41 @@
       h4 {
         margin-bottom: 40px;
       }
-      .squishy-selectors {
-        margin-bottom: 40px;
+      .selectors {
         @include grid();
-        h5 {
-          margin-bottom: 10px;
-          text-transform: uppercase;
-          @include font-size-rem(1.1);
-          @include font-smoothing();
-        }
-        @include breakpoint(1500px, 2556px) {
-          @include span(1,2, compact);
-        }
-        @include breakpoint(2000px, 2556px) {
-          @include span(1,4, compact);
-        }
-        .text,
-        .output {
-          @include span(1,2);
+        .squishy-selectors {
+          margin-bottom: 40px;
+          h5 {
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            @include font-size-rem(1.1);
+            @include font-smoothing();
+          }
           @include breakpoint(1500px, 2556px) {
-            @include span(1,2, compact);
+            @include span(1,2);
           }
-          em,
-          em code, {
-            @include font-size-rem(.8);
-            @include line-height-rem(.8);
+          @include breakpoint(2000px, 2556px) {
+            @include span(1,4);
           }
-          em code {
-            padding: 2px;
-          }
-        }
-        .output .highlight {
-          padding: 20px;
-          background: #f3e4db;
-          border: 1px solid #e6d1c8;
-        }
-        &.one, &.three {
-          @include breakpoint(1500px, 2556px) {
-            padding-right: 1.5%;
-            .text {
-              padding-right: 1.5%;
+          .text,
+          .output {
+            @include span(1,2);
+            p {
+              @include font-size-rem(1);
             }
-            .output {
-              padding-left: 1.5%;
+            em,
+            em code, {
+              @include font-size-rem(.8);
+              @include line-height-rem(.8);
+            }
+            em code {
+              padding: 2px;
             }
           }
-        }
-        &.two, &.four {
-          @include breakpoint(1500px, 2556px) {
-            padding-left: 1.5%;
-            .text {
-              padding-right: 1.5%;
-            }
-            .output {
-              padding-left: 1.5%;
-            }
-          }
-        }
-        &.one {
-          @include breakpoint(2000px, 2556px) {
-            padding-right: 1.5%;
-          }
-        }
-        &.two {
-          @include breakpoint(2000px, 2556px) {
-            padding-right: 1.5%;
-          }
-        }
-        &.three {
-          @include breakpoint(2000px, 2556px) {
-            padding-left: 1.5%;
-          }
-        }
-        &.four {
-          @include breakpoint(2000px, 2556px) {
-            padding-left: 1.5%;
+          .output .highlight {
+            padding: 20px;
+            background: #f3e4db;
+            border: 1px solid #e6d1c8;
           }
         }
       }
@@ -356,6 +316,42 @@
       background: #eee;
       word-wrap: normal;
       overflow-x: scroll;
+    }
+  }
+  footer.region {
+    max-width: 100%;
+    min-height: 200px;
+    background: #deeefe;
+    .squishy-friends {
+      padding: 20px 0;
+      @include grid();
+      .friend {
+        @include span(1,4);
+        .icons-html5 {
+          height: 200px;
+          background: url(icons/html5.png) no-repeat 50% 50%;
+          background-size: contain;
+          // @include sprite-dimensions($icons-sprites, compass);
+        }
+        .icons-css3 {
+          height: 200px;
+          background: url(icons/css3.png) no-repeat 50% 50%;
+          background-size: contain;
+          // @include sprite-dimensions($icons-sprites, compass);
+        }
+        .icons-sass {
+          height: 200px;
+          background: url(icons/sass.png) no-repeat 50% 50%;
+          background-size: contain;
+          // @include sprite-dimensions($icons-sprites, sass);
+        }
+        .icons-less {
+          height: 200px;
+          background: url(icons/less.png) no-repeat 50% 50%;
+          background-size: contain;
+          // @include sprite-dimensions($icons-sprites, less);
+        }
+      }
     }
   }
 }
