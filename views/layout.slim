@@ -20,12 +20,12 @@ head
   / Place favicon.ico and apple-touch-icon.png in the root directory
 
   / /[if lt IE 9]
-  /     == javascript_include_tag \
-  /         "http://html5shim.googlecode.com/svn/trunk/html5.js",
-  /         "respond.min",
-  /         "ie"
-  /     == stylesheet_link_tag \
-  /         "ie.css"
+    == javascript_include_tag \
+        "http://html5shim.googlecode.com/svn/trunk/html5.js",
+        "respond.min",
+        "ie"
+    == stylesheet_link_tag \
+        "ie.css"
 body class="page-#{body_class}"
 
   == yield
