@@ -2,6 +2,7 @@ require 'mina/bundler'
 require 'mina/rails'
 require 'mina/git'
 require 'mina/rbenv'  # for rbenv support. (http://rbenv.org)
+require 'mina/puma'
 # require 'mina/rvm'    # for rvm support. (http://rvm.io)
 
 # Basic settings:
@@ -14,6 +15,8 @@ set :domain, 'squishygrid.com'
 set :deploy_to, '/var/www/squishygrid'
 set :repository, 'git@github.com:micalexander/squishygrid.git'
 set :branch, 'master'
+set :puma_config, "#{deploy_to}/#{shared_path}/config/puma.rb"
+set :puma_state, "#{deploy_to}/#{shared_path}/tmp/sockets/puma.state"
 
 # For system-wide RVM install.
 #   set :rvm_path, '/usr/local/rvm/bin/rvm'
@@ -39,7 +42,7 @@ end
 task :setup => :environment do
 
   queue! %[mkdir -p "#{deploy_to}/#{shared_path}/log"]
-  # queue! %[mkdir -p "#{deploy_to}/#{shared_path}/tmp"]
+  queue! %[mkdir -p "#{deploy_to}/#{shared_path}/tmp"]
 
 end
 
@@ -56,7 +59,6 @@ task :deploy => :environment do
     to :launch do
       queue "mkdir -p #{deploy_to}/#{current_path}/tmp/"
       queue "touch #{deploy_to}/#{current_path}/tmp/restart.txt"
-      invoke :stop
       invoke :start
     end
   end
@@ -65,21 +67,21 @@ end
 desc "Restart the server."
 task :restart => :environment do
   in_directory "#{deploy_to}/#{current_path}" do
-    queue "bundle exec pumactl -F config/puma.rb -p 4567 restart"
+    queue "bundle exec pumactl -S #{puma_state} -p 4567 restart"
   end
 end
 
 desc "Start the server."
 task :start => :environment do
   in_directory "#{deploy_to}/#{current_path}" do
-    queue "bundle exec pumactl -F config/puma.rb -p 4567 -d start"
+    queue "bundle exec puma  -q -d -e -C /var/www/squishygrid/config/puma.rb -p 4567 start"
   end
 end
 
 desc "Stop the server."
 task :stop => :environment do
   in_directory "#{deploy_to}/#{current_path}" do
-    queue "bundle exec pumactl -F config/puma.rb -p 4567 -d stop"
+    queue "bundle exec pumactl -S #{puma_state} -p 4567 stop"
   end
 end
 

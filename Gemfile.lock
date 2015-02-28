@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/growthrepublic/mina-puma.git
+  revision: 2d86ef45b0004931f3998296f90ae99f9e2968c8
+  specs:
+    mina-puma (0.2.0)
+      mina
+
+GIT
   remote: https://github.com/snievas/rdoc-rouge.git
   revision: cccc6082098323f11e03b2631561dd5ea284792c
   specs:
@@ -35,10 +42,14 @@ GEM
       sinatra
     hike (1.2.3)
     json (1.8.1)
+    mina (0.3.2)
+      open4 (~> 1.3.4)
+      rake
     mini_portile (0.6.2)
     multi_json (1.10.1)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
+    open4 (1.3.4)
     puma (2.8.2)
       rack (>= 1.1, < 2.0)
     rack (1.6.0)
@@ -107,6 +118,7 @@ DEPENDENCIES
   compass
   glorify
   json
+  mina-puma!
   puma
   rdoc-rouge!
   rouge (~> 1.3)

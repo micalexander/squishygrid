@@ -10,6 +10,7 @@ gem 'sinatra-asset-pipeline'
 gem 'sinatra-contrib'
 gem 'sinatra-partial'
 gem 'puma'
+gem 'mina-puma', :git => 'https://github.com/growthrepublic/mina-puma.git', :require => false
 
 # Adds Slim support for rapid development
 gem "slim", "~> 2.1.0"
