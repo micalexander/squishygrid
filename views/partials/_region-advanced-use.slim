@@ -1,0 +1,36 @@
+.region.advanced-use
+  section
+    h3 Mixin Versions
+    h4.i.fa-flask Mix it up!
+    p.bottom
+      | Squishygrid also comes in a "Mixin Version". One of the main benefits of using the Mixin Version is the ability to use Squishygrid without having to add any additional class selectors to your HTML markup. This means that you can take full advantage of Squishygrid by using SASS/LESS only.
+    .mixin-use
+      h4.i.fa-file-code-o SASS
+      markdown:
+        SASS anyone? Well Squishygrid comes is sassy right out of the box. You can [download a SASS version here](http://micalexander.com).
+      markdown:
+        There are three Mixins that make up the SASS Mixin version of Squishygrid, and they are:
+      markdown:
+        ```sass @include grid([$margin-left]);```
+        ```text Default: $margin-left: 2.5%. Excepts 0 or compact, to remove all margin. *Must pass unit type along with unit for example: @include grid(3%);```
+
+        ```sass @include span([$unit], [$span], [$margin-left], [$breakpoint]);```
+        ```text Defaults: $unit: 1, $span: 1, $margin-left: 2.5%, $breakpoint: 620px. Passing nothing will give you a unit that fills the grids' full width. *Must pass unit type along with unit for example: @include span(1,3,3%,768px);```
+
+        ```sass @include offset([$offset], [$amount], [$margin-left], [$breakpoint]);```
+        ```text Defaults: $offset: 0, $amount: 0, $margin-left: 2.5%, $breakpoint: 620px. *Must pass unit type along with unit for example: @include offset(1,3,3%,768px);```
+    .mixin-use
+      h4.i.fa-file-code-o LESS
+      markdown:
+        If LESS is your preference, worry not! You can [download a LESS version here](http://micalexander.com).
+      markdown:
+        There are three Mixins that make up the LESS Mixin version of Squishygrid, and they are:
+      markdown:
+        ```sass .grid([$margin-left]);```
+        ```text Default: $margin-left: 2.5%. Excepts 0 or compact, to remove all margin. *Must pass unit type along with unit for example: .grid(3%);```
+
+        ```sass .span([$unit], [$span], [$margin-left], [$breakpoint]);```
+        ```text Defaults: $unit: 1, $span: 1, $margin-left: 2.5%, $breakpoint: 620px. Passing nothing will give you a unit that fills the grids' full width. *Must pass unit type along with unit for example: .span(1,3,3%,768px);```
+
+        ```sass .offset([$offset], [$amount], [$margin-left], [$breakpoint]);```
+        ```text Defaults: $offset: 0, $amount: 0, $margin-left: 2.5%, $breakpoint: 620px. *Must pass unit type along with unit for example: .offset(1,3,3%,768px);```

@@ -1,0 +1,37 @@
+.region.generator
+  section
+    h3 Get it now!
+    .generate-unit
+      h4.i.fa-paint-brush Create your own
+      .form-wrapper
+        form#get-grid.generate.compact action="/generator" method="post"
+          .units
+            input#units type="text" name="units" placeholder="Units: 12"/
+          .margin
+            input#margin type="text" name="margin" placeholder="Margin: 2.5"/
+          .breakpoint
+            input#breakpoint type="text" name="breakpoint" placeholder="Breakpoint: 420"/
+          .output
+            select#output name="output"
+              option value="css"  CSS
+              option value="sass" SASS
+              option value="less" LESS
+          .mixin
+            span Mixin Version Only?
+            input#mixin (type="checkbox" name="mixin" checked) /
+            label for="mixin"
+          .submit.button
+            button.i.fa-gears type="submit"
+              | Create
+    .html-block
+      h4.i.fa-html5 HTML
+      .rendered.html
+        button#html-copy-button.i.fa-clipboard data-clipboard-text="" title="Click to copy to clipboard"  Copy to Clipboard
+        .container
+          .loader
+    .css-block
+      h4.i.fa-css3 CSS/SASS/LESS
+      .rendered.styles
+        button#styles-copy-button.i.fa-clipboard data-clipboard-text="" title="Click to copy to clipboard"  Copy to Clipboard
+        .container
+          .loader

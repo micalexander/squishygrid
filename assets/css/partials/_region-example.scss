@@ -1,0 +1,47 @@
+.region.example {
+  section {
+    h3 {
+      margin-bottom: 0;
+    }
+    form.grid-settings {
+      margin-bottom: 30px;
+      position: relative;
+      padding: 0 0 20px 0;
+      border-bottom: 1px solid rgba(140, 82, 69, .3);
+      span {
+        position: absolute;
+        top: 32%;
+        left: 50%;
+        color: #8d5244;
+        font-family: 'Chicle', cursive;
+        font-size: 20px;
+        &.aloof {
+          margin-left: -75px;
+        }
+        &.chummy {
+          margin-left: 40px;
+        }
+      }
+    }
+    .preview {
+      margin-bottom: 40px;
+      .wrapper {
+        padding-top: 0;
+        text-align: left;
+        overflow: hidden;
+        background: #def;
+        margin-bottom: 20px;
+        @include border-radius();
+        .unit {
+          min-height: 40px;
+          padding-top: 10px;
+          color: #fff;
+          text-align: center;
+          background: #f9c3d0;
+          font-size: 11px;
+          border: 1px solid #e8bfcd;
+        }
+      }
+    }
+  }
+}

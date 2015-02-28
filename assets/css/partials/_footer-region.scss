@@ -1,0 +1,102 @@
+footer.region {
+  max-width: 100%;
+  min-height: 150px;
+  padding: 0;
+  background: #deeefe;
+  & > section {
+    max-width: 2000px;
+    margin: 0 auto;
+    padding: 20px 3%;
+    h5 {
+      text-transform: uppercase;
+      color: #b5dcfc;
+      margin-bottom: 30px;
+    }
+    .all-friends {
+      text-shadow: 0 2px 0 rgba(255, 255 ,255, .3);
+      @include grid();
+      & > section {
+        h1 {
+          height: 0;
+          text-indent: -9999px;
+        }
+        @include span(1,4);
+        @include breakpoint(0, 620px) {
+          margin-bottom: 40px;
+        }
+        .icon-html5 {
+          height: 125px;
+          padding: 0;
+          font-size: 105px;
+          line-height: 120px;
+          @include breakpoint(620px, 1000px) {
+            font-size: 80px;
+          }
+          &:before {
+            left: 50%;
+            margin-left: -70px;
+            color: #b5dcfc;
+            text-shadow: 0 2px 0 rgba(255, 255 ,255, .3);
+            @include breakpoint(620px, 1000px) {
+              margin-left: -40px;
+            }
+          }
+        }
+        .icon-css3 {
+          height: 125px;
+          padding: 0;
+          font-size: 105px;
+          line-height: 120px;
+          @include breakpoint(620px, 1000px) {
+            font-size: 80px;
+          }
+          &:before {
+            left: 50%;
+            margin-left: -70px;
+            color: #b5dcfc;
+            text-shadow: 0 2px 0 rgba(255, 255 ,255, .3);
+            @include breakpoint(620px, 1000px) {
+              margin-left: -40px;
+            }
+          }
+        }
+        .icon-sass {
+          height: 125px;
+          padding: 0;
+          font-size: 105px;
+          line-height: 120px;
+          @include breakpoint(620px, 1000px) {
+            font-size: 80px;
+          }
+          &:before {
+            left: 50%;
+            margin-left: -70px;
+            color: #b5dcfc;
+            text-shadow: 0 2px 0 rgba(255, 255 ,255, .3);
+            @include breakpoint(620px, 1000px) {
+              margin-left: -40px;
+            }
+          }
+        }
+        .icon-less {
+          height: 125px;
+          padding: 0;
+          font-size: 105px;
+          line-height: 120px;
+          @include breakpoint(620px, 1000px) {
+            font-size: 80px;
+          }
+          &:before {
+            left: 50%;
+            margin-left: -70px;
+            color: #b5dcfc;
+            text-shadow: 0 2px 0 rgba(255, 255 ,255, .3);
+            @include breakpoint(620px, 1000px) {
+              margin-left: -40px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

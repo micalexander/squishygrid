@@ -1,0 +1,27 @@
+.region.copyright {
+  & > section {
+    @include span(1,4);
+    @include offset(3,4);
+    .link-wrapper {
+      text-align: right;
+      p {
+        font-size: 16px;
+      }
+    }
+    a.ico-moon {
+      margin-left: 20px;
+      padding-left: 35px;
+      margin-bottom: 10px;
+      color: #8d5244;
+      text-shadow: 0 2px 0 #fff;
+      @include transition(.2s);
+      &:hover {
+        padding-left: 40px;
+      }
+      &:before {
+        color: #8d5244;
+        font-size: 22px;
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+.region.how-it-works
+  section
+    h3 How it works
+    .magic
+      h4.i.fa-magic The Magic
+      .selectors
+        .squishy-selectors
+          h5 Step 1: Make is squishy
+          .text-output
+            .text.i.fa-columns
+              markdown:
+                Add a `grid` class selector to the parent elements that contains the elements you wish to squish.
+            .output
+              markdown:
+                ```html
+                <div class="grid">
+                  ...
+                </div>
+                ```
+        .squishy-selectors
+          h5 Step 2: Add some friends
+          .text-output
+            .text.i.fa-group
+              markdown:
+                Add a `span[x]-of-[y]` class selector to each of the children elements within the `grid` element.
+              markdown:
+                *The `[x]` represents the total number of columns it should take up, and the `[y]` represents the total numbers of columns that are available.*
+            .output
+              markdown:
+                ```html
+                <div class="grid">
+                  <div class="span-1-of-3">
+                  </div>
+                  <div class="span-1-of-3">
+                  </div>
+                  <div class="span-1-of-3">
+                  </div>
+                </div>
+                ```
+        .squishy-selectors
+          h5 Step 3: Teach them tricks
+          .text-output
+            .text.i.fa-send-o
+              markdown:
+                To offset (i.e. push a unit to the right), simply add a class of `offset-[x]-of-[y]` to it.
+            .output
+              markdown:
+                ```html
+                <div class="grid">
+                  <div class="span-1-of-3">
+                  </div>
+                  <div class="span-1-of-3 offset-1-of-3">
+                  </div>
+                </div>
+                ```
+        .squishy-selectors
+          h5 Step 4: Play nice
+          .text-output
+            .text.i.fa-gamepad
+              markdown:
+                Remove margins by adding a `compact` class to the parent element that contains the `span[x]-of-[y]`.
+            .output
+              markdown:
+                ```html
+                <div class="grid compact">
+                  ...
+                </div>
+                ```

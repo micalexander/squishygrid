@@ -1,0 +1,95 @@
+.region.generator {
+  & > section {
+    @include grid();
+    margin-bottom: 40px;
+    .generate-unit {
+      @include span(2,8);
+      @include breakpoint(0,1000px) {
+        @include span(1,2,$breakpoint: 800px);
+      }
+      .form-wrapper {
+        @include grid();
+        form.generate {
+          padding: 20px;
+          border: 1px solid #e6d1c8;
+          background: #f3e4db;
+          @include border-radius();
+          @include span();
+          @include input-placeholder {
+            color: #a98b82;
+          }
+          .units,
+          .margin,
+          .breakpoint,
+          .output,
+          .mixin,
+          .submit {
+            position: relative;
+            height: 40px;
+            margin-bottom: 10px;
+            min-height: 26px;
+            line-height: 30px;
+            @include span($margin-left: compact);
+            span {
+              color: #a98b82;
+              vertical-align: top;
+            }
+            label {
+              position: absolute;
+              right: 2px;
+              display: inline-block;
+            }
+            &.mixin {
+              height: 33px;
+              span {
+                font-size: 14px;
+              }
+            }
+            &.submit {
+              height: 52.5px;
+              margin-bottom: 0;
+            }
+          }
+          input[type="text"] {
+            padding: 5px;
+            border: none;
+            background: #ffffff;
+            @include border-radius();
+          }
+          input[type="text"],
+          select {
+            width: 100%;
+            height: 40px;
+            color: #a98b82;
+            border: 1px solid #e6d1c8;
+            background: #ffffff;
+            @include font-smoothing();
+          }
+          @include breakpoint(0,$desktop) {
+            margin-bottom: 20px;
+          }
+        }
+      }
+    }
+    .html-block,
+    .css-block {
+      @include span(3,8);
+    }
+    .html-block {
+      @include breakpoint(0,800px) {
+        margin-bottom: 20px;
+      }
+      @include breakpoint(0,1000px) {
+        @include span(1,2);
+      }
+      @include breakpoint(0,800px) {
+        @include span();
+      }
+    }
+    .css-block {
+      @include breakpoint(0,1000px) {
+        @include span();
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+.region.advanced-use > section {
+  margin-bottom: 30px;
+  @include grid();
+  h4 {
+    margin-bottom: 40px;
+  }
+  p.bottom {
+    margin-bottom: 40px;
+  }
+  .mixin-use {
+    margin-bottom: 20px;
+    @include span(1,2);
+  }
+  pre.highlight.sass,
+  pre.highlight.plaintext {
+    padding: 5px;
+    font-size: 12px;
+    line-height: 12px;
+    @include border-radius();
+    @include font-smoothing();
+  }
+  pre.highlight.plaintext {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    font-weight: bold;
+    line-height: 20px;
+    background: #eee;
+    word-wrap: normal;
+    overflow-x: scroll;
+  }
+}

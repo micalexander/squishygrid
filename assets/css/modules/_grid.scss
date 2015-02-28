@@ -7,8 +7,7 @@
 }
 .unit {
   border-radius: 5px;
-  // @include transition(.5s);
-  // @include transition-delay(.5s);
+  @include transition(.5s);
   &.wrapper {
     margin-bottom: 20px;
     & > .grid {
