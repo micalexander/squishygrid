@@ -56,7 +56,8 @@ task :deploy => :environment do
     to :launch do
       queue "mkdir -p #{deploy_to}/#{current_path}/tmp/"
       queue "touch #{deploy_to}/#{current_path}/tmp/restart.txt"
-      invoke :restart
+      invoke :stop
+      invoke :start
     end
   end
 end
@@ -71,14 +72,14 @@ end
 desc "Start the server."
 task :start => :environment do
   in_directory "#{deploy_to}/#{current_path}" do
-    queue "bundle exec puma -C config/puma.rb -p 4567 -d start"
+    queue "bundle exec pumactl -F config/puma.rb -p 4567 -d start"
   end
 end
 
 desc "Stop the server."
 task :stop => :environment do
   in_directory "#{deploy_to}/#{current_path}" do
-    queue "bundle exec puma -C config/puma.rb -p 4567 -d stop"
+    queue "bundle exec pumactl -F config/puma.rb -p 4567 -d stop"
   end
 end
 
