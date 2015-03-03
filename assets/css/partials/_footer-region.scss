@@ -21,7 +21,7 @@ footer.region {
           text-indent: -9999px;
         }
         @include span(1,4);
-        @include breakpoint(0, 620px) {
+        @include at(620) {
           margin-bottom: 40px;
         }
         .icon-html5 {
@@ -29,7 +29,7 @@ footer.region {
           padding: 0;
           font-size: 105px;
           line-height: 120px;
-          @include breakpoint(620px, 1000px) {
+          @include at(620, 1000) {
             font-size: 80px;
           }
           &:before {
@@ -37,7 +37,7 @@ footer.region {
             margin-left: -70px;
             color: #b5dcfc;
             text-shadow: 0 2px 0 rgba(255, 255 ,255, .3);
-            @include breakpoint(620px, 1000px) {
+            @include at(620, 1000) {
               margin-left: -40px;
             }
           }
@@ -47,7 +47,7 @@ footer.region {
           padding: 0;
           font-size: 105px;
           line-height: 120px;
-          @include breakpoint(620px, 1000px) {
+          @include at(620, 1000) {
             font-size: 80px;
           }
           &:before {
@@ -55,7 +55,7 @@ footer.region {
             margin-left: -70px;
             color: #b5dcfc;
             text-shadow: 0 2px 0 rgba(255, 255 ,255, .3);
-            @include breakpoint(620px, 1000px) {
+            @include at(620, 1000) {
               margin-left: -40px;
             }
           }
@@ -65,7 +65,7 @@ footer.region {
           padding: 0;
           font-size: 105px;
           line-height: 120px;
-          @include breakpoint(620px, 1000px) {
+          @include at(620, 1000) {
             font-size: 80px;
           }
           &:before {
@@ -73,7 +73,7 @@ footer.region {
             margin-left: -70px;
             color: #b5dcfc;
             text-shadow: 0 2px 0 rgba(255, 255 ,255, .3);
-            @include breakpoint(620px, 1000px) {
+            @include at(620, 1000) {
               margin-left: -40px;
             }
           }
@@ -83,7 +83,7 @@ footer.region {
           padding: 0;
           font-size: 105px;
           line-height: 120px;
-          @include breakpoint(620px, 1000px) {
+          @include at(620, 1000) {
             font-size: 80px;
           }
           &:before {
@@ -91,7 +91,7 @@ footer.region {
             margin-left: -70px;
             color: #b5dcfc;
             text-shadow: 0 2px 0 rgba(255, 255 ,255, .3);
-            @include breakpoint(620px, 1000px) {
+            @include at(620, 1000px) {
               margin-left: -40px;
             }
           }

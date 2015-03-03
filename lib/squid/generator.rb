@@ -13,14 +13,15 @@ module Squid
   }
 }
 		eos
-			(1..units).each	do |unit|
+      (1..units).each do |unit|
         (unit..units).each do |span|
-          comma = units != span ? ',' : ' {'
+          comma = (unit != span or units != span) ? ',' : ' {'
           grid += <<-eos
 .span-#{unit}-of-#{span}#{comma}
           eos
         end
-        grid += <<-eos
+      end
+      grid += <<-eos
   display: inline-block;
   vertical-align: top;
   margin-left: #{margin}%;
@@ -28,8 +29,8 @@ module Squid
   overflow: hidden;
   *overflow: visible;
 }
-        eos
-
+      eos
+			(1..units).each	do |unit|
         (unit..units).each do |span|
 
           width = (100 - (span * margin)) / span * unit + ((unit - 1) * margin)
@@ -101,41 +102,41 @@ module Squid
 ** Squishygrid Sass Mixins
 ** ---------------------------------------------- */
 
-@mixin grid($margin-left: 2.5%) {
-  @if ($margin-left == compact or $margin-left == 0) {
+@mixin grid($margin: 2.5%) {
+  @if ($margin == compact or $margin == 0) {
     width: 100%;
     margin-left: 0;
   }
   @else {
-    width: 100 + $margin-left;
-    margin-left: -$margin-left;
+    width: 100 + $margin;
+    margin-left: -$margin;
     > * {
-      margin-left: $margin-left;
+      margin-left: $margin;
     }
   }
 }
 
-@mixin span($unit: 1, $span: 1, $margin-left: 2.5%, $breakpoint: 620px) {
+@mixin span($unit: 1, $columns: 1, $margin: 2.5%, $breakpoint: 620px) {
   display: inline-block;
   vertical-align: top;
-  @if ($margin-left == compact or $margin-left == 0) {
-    width: $unit * (100.0% / $span);
+  @if ($margin == compact or $margin == 0) {
+    width: $unit * (100.0% / $columns);
     margin-left: 0;
   }
   @else {
-    width: (100 - ($span * $margin-left)) / $span * $unit + (($unit - 1) * $margin-left);
-    margin-left: $margin-left;
+    width: (100 - ($columns * $margin)) / $columns * $unit + (($unit - 1) * $margin);
+    margin-left: $margin;
   }
   *zoom: 1;
   overflow: hidden;
   *overflow: visible;
   @media (max-width: $breakpoint) {
-    width: 100 - $margin-left;
+    width: 100 - $margin;
   }
 }
 
-@mixin offset($offset: 0, $amount: 0, $margin-left: 2.5%, $breakpoint: 620px) {
-  margin-left: (100.0 / $amount) * $offset + $margin-left;
+@mixin offset($offset: 0, $amount: 0, $margin: 2.5%, $breakpoint: 620px) {
+  margin-left: (100.0 / $amount) * $offset + $margin;
   @media (max-width: $breakpoint) {
     margin-left: 0;
   }
@@ -149,20 +150,20 @@ module Squid
 ** Squishygrid LESS Mixins
 ** ---------------------------------------------- */
 
-.grid(@margin-left: 2.5%) {
-  width: 100 + @margin-left;
-  margin-left: -@margin-left;
+.grid(@margin: 2.5%) {
+  width: 100 + @margin;
+  margin-left: -@margin;
   > * {
-    margin-left: @margin-left;
+    margin-left: @margin;
   }
-  & when (@margin-left = compact) {
+  & when (@margin = compact) {
     width: 100%;
     margin-left: 0;
     > * {
       margin-left: 0;
     }
   }
-  & when (@margin-left = 0) {
+  & when (@margin = 0) {
     width: 100%;
     margin-left: 0;
     > * {
@@ -171,16 +172,16 @@ module Squid
   }
 }
 
-.span(@unit: 1, @span: 1, @margin-left: 2.5%, @breakpoint: 620px) {
+.span(@unit: 1, @span: 1, @margin: 2.5%, @breakpoint: 620px) {
   display: inline-block;
   vertical-align: top;
-  width: (100 - (@span * @margin-left)) / @span * @unit + ((@unit - 1) * @margin-left);
-  margin-left: @margin-left;
-  & when (@margin-left == compact) {
+  width: (100 - (@span * @margin)) / @span * @unit + ((@unit - 1) * @margin);
+  margin-left: @margin;
+  & when (@margin == compact) {
     width: @unit * (100.0% / @span);
     margin-left: 0;
   }
-  & when (@margin-left == 0) {
+  & when (@margin == 0) {
     width: @unit * (100.0% / @span);
     margin-left: 0;
   }
@@ -188,12 +189,12 @@ module Squid
   overflow: hidden;
   *overflow: visible;
   @media (max-width: @breakpoint) {
-    width: 100 - @margin-left;
+    width: 100 - @margin;
   }
 }
 
-.offset(@offset: 0, @amount: 0, @margin-left: 2.5%, @breakpoint: 620px) {
-  margin-left: (100.0 / @amount) * @offset + @margin-left;
+.offset(@offset: 0, @amount: 0, @margin: 2.5%, @breakpoint: 620px) {
+  margin-left: (100.0 / @amount) * @offset + @margin;
   @media (max-width: @breakpoint) {
     margin-left: 0;
   }

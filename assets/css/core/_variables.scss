@@ -1,0 +1,95 @@
+/*
+-------------------------------------------------------------------------------
+ Variables
+-------------------------------------------------------------------------------
+*/
+
+$grid_columns               : 12 !default;
+$grid_gutters               : 2.5% !default;
+$grid_breakpoint            : 620 !default;
+
+$color-body                 : #8d5244 !default;
+$color-h1                   : $color-body !default;
+$color-h2                   : $color-h1 !default;
+$color-h3                   : $color-h1 !default;
+$color-h4                   : $color-h1 !default;
+$color-h5                   : $color-h1 !default;
+$color-h6                   : $color-h1 !default;
+$color-p                    : $color-body !default;
+$color-a                    : #fc880f !default;
+$color-a-hover              : #f9c3d0 !default;
+$color-font-awesome         : #cccccc !default;
+$color-selection            : #ffffff !default;
+$color-selection-backgound  : #1fa6e9 !default;
+$color-inputs               : $color-body !default;
+
+$font-body                  : 'Open sans', Arial, sans-serif !default;
+$font-h1                    : $font-body !default;
+$font-h2                    : $font-h1 !default;
+$font-h3                    : $font-h1 !default;
+$font-h4                    : $font-h1 !default;
+$font-h5                    : $font-h1 !default;
+$font-h6                    : $font-h1 !default;
+$font-a                     : $font-body !default;
+
+$font-awesome-class         : 'fa' !default;
+
+$font-size-html             : 62.5% !default;
+$font-size-h1               : 32 !default;
+$font-size-h2               : 24 !default;
+$font-size-h3               : 18 !default;
+$font-size-h4               : 16 !default;
+$font-size-h5               : 12 !default;
+$font-size-h6               : 10 !default;
+$font-size-p                : 16 !default;
+$font-size-a                : 16 !default;
+$font-size-blockquote       : 16 !default;
+
+$font-weight-normal         : 400 !default;
+$font-weight-bold           : 700 !default;
+$font-weight-h1             : $font-weight-bold !default;
+$font-weight-h2             : $font-weight-h1 !default;
+$font-weight-h3             : $font-weight-h1 !default;
+$font-weight-h4             : $font-weight-h1 !default;
+$font-weight-h5             : $font-weight-h1 !default;
+$font-weight-h6             : $font-weight-h1 !default;
+$font-weight-p              : normal !default;
+
+$line-height-html           : 1;
+$line-height-h1             : 1.2 !default;
+$line-height-h2             : $line-height-h1 !default;
+$line-height-h3             : $line-height-h1 !default;
+$line-height-h4             : $line-height-h1 !default;
+$line-height-h5             : $line-height-h1 !default;
+$line-height-h6             : $line-height-h1 !default;
+$line-height-p              : $line-height-h1 !default;
+
+$list-style-ul              : disc !default;
+$list-style-ol              : decimal !default;
+$list-style-ol-ol           : lower-alpha !default;
+$list-style-nav-ul          : none !default;
+
+$line-height-body           : 150% !default;
+
+$margin-bottom-h1           : 30px !default;
+$margin-bottom-h2           : 25px !default;
+$margin-bottom-h3           : 20px !default;
+$margin-bottom-h4           : 15px !default;
+$margin-bottom-h5           : 15px !default;
+$margin-bottom-h6           : 15px !default;
+$margin-bottom-p            : 20px !default;
+$margin-bottom-blockquote   : 20px !default;
+$margin-ul                  : 0 0 20px 1.1em !default;
+$margin-ol                  : 0 0 20px 2em !default;
+$margin-ol-li               : .5em 0 !default;
+$margin-ul-nav              : 0 !default;
+
+$text-decoration-a          : none !default;
+$text-decoration-nav-a      : none !default;
+
+$speed                      : 250ms !default;
+
+$width-region               : 1024 !default;
+$width-mobile               : 420 !default;
+$width-tablet               : 768 !default;
+$width-desktop              : 1000 !default;

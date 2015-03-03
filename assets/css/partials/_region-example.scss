@@ -1,7 +1,9 @@
 .region.example {
+  @include font-rem(16);
   section {
     h3 {
       margin-bottom: 0;
+      @include font-em(30);
     }
     form.grid-settings {
       margin-bottom: 30px;
@@ -40,6 +42,30 @@
           background: #f9c3d0;
           font-size: 11px;
           border: 1px solid #e8bfcd;
+        }
+      }
+    }
+    .unit {
+      border-radius: 5px;
+      @include transition(.5s);
+      &.wrapper {
+        margin-bottom: 20px;
+        & > .grid {
+          margin-bottom: 0;
+        }
+      }
+      &[class*=' span-'],
+      &[class*=' offset-'] {
+        .grid &,
+        .grid.compact > & {
+          margin-top: 20px;
+          &.wrapper,
+          &:first-child {
+            margin-top: 0;
+          }
+          @include at($width-mobile) {
+            margin-top: 0;
+          }
         }
       }
     }

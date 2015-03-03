@@ -1,48 +1,42 @@
-.region.how-it-works > section {
-  margin-bottom: 30px;
-  @include grid();
-  .magic {
-    margin-bottom: 20px;
-    h4 {
-      margin-bottom: 40px;
-    }
-    .selectors {
-      @include grid();
-      .squishy-selectors {
+.region.how-it-works {
+  & > section {
+    @include font-rem(16);
+    margin-bottom: 30px;
+    @include grid();
+    .magic {
+      margin-bottom: 20px;
+      h4 {
         margin-bottom: 40px;
-        h5 {
-          margin-bottom: 10px;
-          text-transform: uppercase;
-          @include font-size-rem(1.1);
-          @include font-smoothing();
-        }
-        @include breakpoint(1500px, 2556px) {
-          @include span(1,2);
-        }
-        @include breakpoint(2000px, 2556px) {
-          @include span(1,4);
-        }
-        .text-output {
-          @include grid(4%);
-          .text,
-          .output {
-            @include span(1,2,$margin-left: 4%);
-            p {
-              @include font-size-rem(1);
-            }
-            em,
-            em code, {
-              @include font-size-rem(.8);
-              @include line-height-rem(.8);
-            }
-            em code {
-              padding: 2px;
-            }
+      }
+      .selectors {
+        @include grid();
+        .squishy-selectors {
+          margin-bottom: 40px;
+          h5 {
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            @include font-smoothing();
           }
-          .output .highlight {
-            padding: 20px;
-            background: #f3e4db;
-            border: 1px solid #e6d1c8;
+          @include at(1500, 2556) {
+            @include span(6);
+          }
+          @include at(2000, 2556) {
+            @include span(3);
+          }
+          .text-output {
+            @include grid(4%);
+            .text,
+            .output {
+              @include span(6,$gutters: 4%);
+              em code {
+                padding: 2px;
+              }
+            }
+            .output .highlight {
+              padding: 20px;
+              background: #f3e4db;
+              border: 1px solid #e6d1c8;
+            }
           }
         }
       }

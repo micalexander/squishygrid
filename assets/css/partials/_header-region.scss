@@ -1,112 +1,91 @@
-header.region > section {
-  @include grid();
-  .introduction {
-    @include span(2,3);
-    @include breakpoint(0,900px) {
-      @include span(5,8);
+header.region {
+  @include font-rem(10);
+  & > section {
+    @include at(400) {
+      @include font-rem(12);
     }
-    @include breakpoint(0,700px) {
-      @include span(7,12,$breakpoint: 680px);
+    @include at(900) {
+      @include font-rem(14);
     }
-    h1 {
-      padding-left: 5px;
-      @include breakpoint(0,1150px) {
-        @include font-size-rem(7.2);
-        @include line-height-rem(7.6);
+    @include at(1000) {
+      @include font-rem(16);
+    }
+    @include grid();
+
+    .introduction {
+      @include at(670) {
+        @include span(7);
       }
-      @include breakpoint(0,1000px) {
-        @include font-size-rem(6.2);
-        @include line-height-rem(6.6);
+      @include at(780) {
+        @include span(8);
       }
-      @include breakpoint(0,900px) {
-        @include font-size-rem(5.2);
-        @include line-height-rem(5.6);
-      }
-      @include breakpoint(0,700px) {
+      h1 {
         text-align: center;
+        @include font-em(122);
+        @include at(670) {
+          padding-left: 5px;
+          text-align: left;
+        }
+      }
+      h2 {
+        font-size: 2.8em;
+        text-align: center;
+        margin-bottom: 20px;
         padding-left: 0;
+        @include at(700) {
+          text-align: left;
+          padding-left: 5px;
+        }
+        @include at(1000) {
+          margin-bottom: 30px;
+        }
+        @include at(1150) {
+          margin-bottom: 40px;
+        }
+        @include at(1180) {
+        }
       }
-      @include breakpoint(0,400px) {
-        @include font-size-rem(4.4);
-        @include line-height-rem(4.8);
-      }
-    }
-    h2 {
-      padding-left: 5px;
-      @include breakpoint(0,1180px) {
-        margin-bottom: 40px;
-      }
-      @include breakpoint(0,1150px) {
+      h3 {
         margin-bottom: 30px;
-        @include font-size-rem(2.4);
-        @include line-height-rem(2.6);
+        padding: 0 0 20px 0;
+        border-bottom: 1px solid rgba(140, 82, 69, 0.3);
       }
-      @include breakpoint(0,1000px) {
+      p {
         margin-bottom: 20px;
-        @include font-size-rem(2);
-        @include line-height-rem(2.4);
-      }
-      @include breakpoint(0,900px) {
-        margin-bottom: 20px;
-        @include font-size-rem(1.8);
-        @include line-height-rem(2);
-      }
-      @include breakpoint(0,700px) {
-        text-align: center;
-        padding-left: 0;
-      }
-      @include breakpoint(0,400px) {
-        @include font-size-rem(1.5);
-        @include line-height-rem(1.7);
+        padding-bottom: 0;
+        @include font-em(18);
       }
     }
-    h3 {
-      margin-bottom: 30px;
-      padding: 0 0 20px 0;
-      border-bottom: 1px solid rgba(140, 82, 69, 0.3);
-    }
-    p {
-      margin-bottom: 20px;
-      padding-bottom: 0;
-      @include breakpoint(0,1180px) {
-        @include font-size-rem(1.1);
+    .mascot-wrapper {
+      @include at(670) {
+        @include span(5);
       }
-      @include breakpoint(0,1000px) {
-        @include font-size-rem(1);
-        @include line-height-rem(1.4);
+      @include at(780) {
+        @include span(4);
       }
-    }
-  }
-  .mascot-wrapper {
-    @include span(1,3);
-    @include breakpoint(0,900px) {
-      @include span(3,8);
-    }
-    @include breakpoint(0,700px) {
-      @include span(5,12,$breakpoint: 680px);
-    }
-    .mascot {
-      float: right;
-      width: 400px;
-      margin: auto;
-      margin-bottom: 30px;
-      @include breakpoint(0,700px) {
+      .mascot {
         float: none;
         width: 300px;
+        margin: auto;
+        margin-bottom: 30px;
+        @include at(670) {
+          float: right;
+          width: 400px;
+        }
       }
     }
   }
-}
-nav {
-  margin-bottom: 50px;
-  padding: 20px;
-  border: 1px solid #e6d1c8;
-  background: #f3e4db;
-  @include border-radius();
-  .actions {
-    @include grid();
-    .action {
-      @include span(1,3);
+  nav {
+    margin-bottom: 50px;
+    padding: 20px;
+    border: 1px solid #e6d1c8;
+    background: #f3e4db;
+    @include border-radius();
+    .actions {
+      @include grid();
+      .action {
+        @include span(4);
+      }
     }
   }
 }

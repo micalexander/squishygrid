@@ -2,7 +2,15 @@ html {
 	min-height: 100%;
   border-top: 10px solid #8c5245;
 }
-
+h1 {
+  text-shadow:
+       3px 3px 0 #8d5244,
+     -1px -1px 0 #8d5244,
+      1px -1px 0 #8d5244,
+      -1px 1px 0 #8d5244,
+       1px 1px 0 #8d5244;
+  letter-spacing: -0.03em;
+}
 body {
   position: relative;
   padding: 40px 0 0 0;

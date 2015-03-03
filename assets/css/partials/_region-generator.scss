@@ -1,15 +1,29 @@
 .region.generator {
+  @include font-rem(16);
   & > section {
     @include grid();
     margin-bottom: 40px;
+    h3 {
+      @include font-em(30);
+    }
     .generate-unit {
-      @include span(2,8);
-      @include breakpoint(0,1000px) {
-        @include span(1,2,$breakpoint: 800px);
+      // margin-bottom: 20px;
+      @include at(670) {
+        @include span(4);
+      }
+      // @include at(800) {
+      //   margin-bottom: 0;
+      // }
+      @include at(1000) {
+        @include span(2,8);
+      }
+      @include at(1300) {
+        @include span(3,15);
       }
       .form-wrapper {
         @include grid();
         form.generate {
+          margin-bottom: 20px;
           padding: 20px;
           border: 1px solid #e6d1c8;
           background: #f3e4db;
@@ -29,7 +43,7 @@
             margin-bottom: 10px;
             min-height: 26px;
             line-height: 30px;
-            @include span($margin-left: compact);
+            @include span($gutters: 0%);
             span {
               color: #a98b82;
               vertical-align: top;
@@ -65,30 +79,37 @@
             background: #ffffff;
             @include font-smoothing();
           }
-          @include breakpoint(0,$desktop) {
-            margin-bottom: 20px;
+          @include at($width-desktop) {
+            margin-bottom: 0;
           }
         }
       }
     }
     .html-block,
     .css-block {
-      @include span(3,8);
+      @include span();
+      @include at(1300) {
+        @include span(6,15);
+      }
     }
     .html-block {
-      @include breakpoint(0,800px) {
-        margin-bottom: 20px;
+      margin-bottom: 20px;
+      @include at(670) {
+        @include span(8);
       }
-      @include breakpoint(0,1000px) {
-        @include span(1,2);
-      }
-      @include breakpoint(0,800px) {
-        @include span();
+      @include at(1000) {
+        @include span(3,8);
       }
     }
     .css-block {
-      @include breakpoint(0,1000px) {
-        @include span();
+      @include at(1000) {
+        @include span(3,8);
+      }
+    }
+    .html-block,
+    .css-block {
+      @include at(1300) {
+        @include span(6,15);
       }
     }
   }

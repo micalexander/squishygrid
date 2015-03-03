@@ -1,150 +1,146 @@
-
-@mixin font-size-rem($size: 1.6){
-  font-size: ($size * 10 + 5) + px;
-  font-size: $size + rem;
-}
-
-@mixin line-height-rem($size: 1.6){
-  line-height: ($size * 10 + 5) + px;
-  line-height: $size + rem;
-}
-
-body,select,input,textarea{color:#333;}
-
 * {
- @include selection(#fff, #f9c3d0)
+	@include selection($color-selection, $color-selection-backgound);
 }
 
+html {
+	font-size: $font-size-html;
+	line-height: $line-height-html;
+}
 
 body {
-	color: $body-color;
-	font-size: 100%;
-	font-weight: normal;
-	line-height: 150%;
-	font-family: $body-font;
+	color: $color-body;
+	font-family: $font-body;
 }
-a {
-	color: $link-color;
-	font-size: 1em;		/* 16x1=16 */
-	font-family: $body-font;
-	text-decoration: none;
-	&:link{-webkit-tap-highlight-color: transparent;}
-	ins{background-color:transparent;color:$link-color;text-decoration:none;}
-	&:hover{
-		color: $link-hover;
-	}
-}
+
 h1 {
-	margin: 0 0 10px 0;
-	color: #f9c3d0;
-	font-family: $heading-font;
-	font-weight: 700;
-  text-shadow:
-       3px 3px 0 #8d5244,
-     -1px -1px 0 #8d5244,
-      1px -1px 0 #8d5244,
-      -1px 1px 0 #8d5244,
-       1px 1px 0 #8d5244;
-	letter-spacing: -0.03em;
-	@include font-size-rem(.8);
+	color: $color-h1;
+	margin-bottom: $margin-bottom-h1;
+	font-family: $font-h1;
+	font-weight: $font-weight-h1;
+  line-height: $line-height-h1;
+	@include font-rem($font-size-h1);
 	@include mobile() {
 		margin: 0 0 10px 0;
-		@include font-size-rem(6.2);
-		@include line-height-rem(6.6);
-	}
-	@include tablet(ge) {
-		@include font-size-rem(8.2);
-		@include line-height-rem(9);
 	}
 
 }
 h2 {
-	margin: 0 0 60px 0;
-	color: $heading-color;
-	font-family: $heading-font;
-	font-weight: 700;
-	@include mobile() {
-		@include font-size-rem(1.6);
-		@include line-height-rem(2);
-	}
-	@include tablet(ge) {
-		@include font-size-rem(2.8);
-		@include line-height-rem(3);
-	}
+	margin-bottom: $margin-bottom-h2;
+	color: $color-h2;
+	font-family: $font-h2;
+	font-weight: $font-weight-h2;
+	line-height: $line-height-h2;
+	@include font-rem($font-size-h2);
 }
 h3 {
-	margin: 0 0 20px 0;
+	margin-bottom: $margin-bottom-h3;
+	color: $color-h3;
+	font-family: $font-h3;
+	font-weight: $font-weight-h3;
+	line-height: $line-height-h3;
+	@include font-rem($font-size-h3);
 	padding-bottom: 20px;
-	color: $heading-color;
-	font-family: $heading-font;
-	font-weight: 700;
 	border-bottom: 1px solid rgba(140, 82, 69, 0.3);
-	@include mobile() {
-		@include font-size-rem(2);
-		@include line-height-rem(2.2);
-	}
-	@include tablet(ge) {
-		@include font-size-rem(2);
-		@include line-height-rem(2.2);
-	}
 }
 h4 {
-	margin-bottom: 20px;
-	font-size: 1.2em; /* 16x0.875=19.2 */
-	font-weight: 600;
-	line-height: 1em; /* 24px */
-	color: $heading-color;
+	margin-bottom: $margin-bottom-h4;
+	color: $color-h4;
+	font-family: $font-h4;
+	font-weight: $font-weight-h4;
+	@include font-rem($font-size-h4);
+	line-height: $line-height-h4;
 	&.i {
 		font-weight: 600;
 		&:before {
 			font-weight: 300;
 		}
+	}
+}
 
-	}
+h5 {
+	margin-bottom: $margin-bottom-h5;
+	color: $color-h5;
+	font-family: $font-h5;
+	font-weight: $font-weight-h5;
+	line-height: $line-height-h5;
+	@include font-rem($font-size-h5);
 }
+
+h6 {
+	margin-bottom: $margin-bottom-h6;
+	color: $color-h6;
+	font-family: $font-h5;
+	font-weight: $font-weight-h6;
+	@include font-rem($font-size-h6);
+}
+
 p {
-	font-weight: 300;
-	padding-bottom: 1em;
+	margin-bottom: $margin-bottom-p;
+	color: $color-p;
+
+	font-weight: $font-weight-p;
+	line-height: $line-height-p;
+	@include font-rem($font-size-p);
 	@include font-smoothing();
-	@include font-size-rem(1.2);
-	@include line-height-rem(1.7);
-	@include breakpoint( tablet ) {
-		padding-bottom: 1.3em;
-	}
-	@include breakpoint(desktop) {
-		padding-bottom: 1.3em;
-		@include font-size-rem(1.4);
-		@include line-height-rem(1.9);
+}
+
+a {
+	color: $color-a;
+	font-family: $font-a;
+	text-decoration: $text-decoration-a;
+	@include font-rem($font-size-a);
+	&:link{-webkit-tap-highlight-color: transparent;}
+	ins{background-color:transparent;color:$color-a;text-decoration: $text-decoration-a;}
+	&:hover{
+		color: $color-a-hover;
 	}
 }
+
 ul {
-	list-style: disc;
-	margin: 0 0 0 1.1em;
-	padding-bottom: 1em;
-	li {
-		font-weight: 300;
-	}
+	list-style: $list-style-ul ;
+	margin: $margin-ul;
 	nav & { // remove styling for nav ul's
-		list-style: none;
-		margin: 0;
-		padding-bottom: 0;
-		a { text-decoration: none; }
+		list-style: $list-style-nav-ul;
+		margin: $margin-ul-nav ;
+		a { text-decoration: $text-decoration-nav-a; }
 	}
 }
+
 ol {
-	list-style: decimal;
-	margin: 0 0 1em 2em;
-	li { margin: .5em 0; }
-	ol { list-style: lower-alpha; }
+	list-style: $list-style-ol ;
+	margin: $margin-ol;
+	li { margin: $margin-ol-li; }
+	ol { list-style: $list-style-ol-ol ; }
 }
+
 blockquote {
-	padding-bottom: 1.3em;
-	@include font-size-rem(1.9);
-	@include line-height-rem(2.4);
-	.credit {
-		margin-top: 20px;
-		padding-left: 170px;
-		@include font-size-rem(1.1);
-		@include line-height-rem(1.1);
-	}
+	margin-bottom: $margin-bottom-blockquote;
+	@include font-rem($font-size-blockquote);
+}
+
+select,
+input,
+textarea{
+	color: $color-inputs;
+}
+
+pre {
+	line-height: 1.6;
+	@include font-rem(10);
+}
+
+.#{$font-awesome-class} {
+  position: relative;
+  padding-left: 30px;
+  font-weight: 300;
+  vertical-align: top;
+  line-height: 22px;
+  @include font-smoothing();
+  &:before {
+    font-family: 'FontAwesome';
+		position: absolute;
+		left: 0;
+    color: $color-font-awesome;
+    @include transition(all .2s);
+  }
 }
