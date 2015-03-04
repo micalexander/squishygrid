@@ -16,7 +16,6 @@ head
 
   == stylesheet_tag 'screen'
 
-
   / Place favicon.ico and apple-touch-icon.png in the root directory
 
   / /[if lt IE 9]
@@ -26,6 +25,7 @@ head
         "ie"
     == stylesheet_link_tag \
         "ie.css"
+
 body class="page-#{body_class}"
 
   == partial 'partials/_header-region', :template_engine => :slim
