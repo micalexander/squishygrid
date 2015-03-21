@@ -25,6 +25,7 @@ module Squid
   display: inline-block;
   vertical-align: top;
   margin-left: #{margin}%;
+  margin-right: -.273em;
   *zoom: 1;
   overflow: hidden;
   *overflow: visible;
@@ -102,45 +103,95 @@ module Squid
 ** Squishygrid Sass Mixins
 ** ---------------------------------------------- */
 
-@mixin grid($margin: 2.5%) {
-  @if ($margin == compact or $margin == 0) {
+$grid_columns    : 12 !default;
+$grid_gutters    : 2.5% !default;
+$grid_breakpoint : 620 !default;
+
+@mixin grid($gutters: null) {
+
+  $grid_gutters: $grid_gutters;
+
+  @if ($gutters != null) {
+    $grid_gutters: $gutters;
+  }
+
+  @if $grid_gutters == 0 {
     width: 100%;
     margin-left: 0;
   }
   @else {
-    width: 100 + $margin;
-    margin-left: -$margin;
+    width: 100 + $grid_gutters;
+    margin-left: -$grid_gutters;
     > * {
-      margin-left: $margin;
+      margin-left: $grid_gutters;
     }
   }
 }
 
-@mixin span($unit: 1, $columns: 1, $margin: 2.5%, $breakpoint: 620px) {
+@mixin span($span: null, $columns: null, $gutters: null, $breakpoint: null) {
+
   display: inline-block;
   vertical-align: top;
-  @if ($margin == compact or $margin == 0) {
-    width: $unit * (100.0% / $columns);
-    margin-left: 0;
-  }
-  @else {
-    width: (100 - ($columns * $margin)) / $columns * $unit + (($unit - 1) * $margin);
-    margin-left: $margin;
-  }
   *zoom: 1;
   overflow: hidden;
   *overflow: visible;
-  @media (max-width: $breakpoint) {
-    width: 100 - $margin;
+  margin-right: -.273em;
+
+  $grid_columns   : $grid_columns;
+  $grid_gutters   : $grid_gutters;
+  $grid_breakpoint: $grid_breakpoint;
+
+  @if ($columns != null) {
+    $grid_columns: $columns;
+  }
+  @if ($span == null) {
+    $span: $grid_columns;
+  }
+  @if $gutters != null {
+    $grid_gutters: $gutters;
+  }
+  @if $breakpoint != null {
+    $grid_breakpoint: $breakpoint;
+  }
+
+  width: 100% - $grid_gutters;
+
+  @media (min-width: ($grid_breakpoint / 16) +  em) {
+    @if $grid_gutters == 0 {
+      width: $span * (100.0% / $grid_columns);
+      margin-left: 0;
+    }
+    @else {
+      width: (100% - ($grid_columns * $grid_gutters)) / $grid_columns * $span + (($span - 1) * $grid_gutters);
+      margin-left: $grid_gutters;
+    }
   }
 }
 
-@mixin offset($offset: 0, $amount: 0, $margin: 2.5%, $breakpoint: 620px) {
-  margin-left: (100.0 / $amount) * $offset + $margin;
-  @media (max-width: $breakpoint) {
-    margin-left: 0;
+@mixin offset($offset: 0, $columns: null, $gutters: null, $breakpoint: null) {
+
+  $grid_columns   : $grid_columns;
+  $grid_gutters   : $grid_gutters;
+  $grid_breakpoint: $grid_breakpoint;
+
+  @if ($columns != null) {
+    $grid_columns: $columns;
+  }
+
+  @if $gutters != null {
+    $grid_gutters: $gutters;
+  }
+
+  @if $breakpoint != null {
+    $grid_breakpoint: $breakpoint;
+  }
+
+  margin-left: 0;
+  @media (min-width: ($grid_breakpoint / 16) +  em) {
+    margin-left: (100.0 / $grid_columns) * $offset + $grid_gutters;
   }
 }
+
         eos
 
       elsif output == 'less'
@@ -177,6 +228,7 @@ module Squid
   vertical-align: top;
   width: (100 - (@span * @margin)) / @span * @unit + ((@unit - 1) * @margin);
   margin-left: @margin;
+  margin-right: -.273em;
   & when (@margin == compact) {
     width: @unit * (100.0% / @span);
     margin-left: 0;
