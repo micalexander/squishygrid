@@ -227,7 +227,6 @@ $grid_breakpoint : 620 !default;
   }
 }
 
-
 .span(@span: ~'', @columns: ~'', @gutters: ~'', @breakpoint: ~'') {
 
   display: inline-block;
@@ -236,7 +235,6 @@ $grid_breakpoint : 620 !default;
   overflow: hidden;
   *overflow: visible;
   margin-right: -.273em;
-
 
   & when (@columns) {
     @grid_columns: @columns;
