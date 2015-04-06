@@ -103,6 +103,8 @@ module Squid
 ** Squishygrid Sass Mixins
 ** ---------------------------------------------- */
 
+// Generated at http://squishygrid.com
+
 $grid_columns    : 12 !default;
 $grid_gutters    : 2.5% !default;
 $grid_breakpoint : 620 !default;
@@ -201,56 +203,90 @@ $grid_breakpoint : 620 !default;
 ** Squishygrid LESS Mixins
 ** ---------------------------------------------- */
 
-.grid(@margin: 2.5%) {
-  width: 100 + @margin;
-  margin-left: -@margin;
+// Generated at http://squishygrid.com
+
+@grid_columns    : 12;
+@grid_gutters    : 2.5%;
+@grid_breakpoint : 620;
+
+.grid(@gutters: ~'') {
+
+  & when not (@gutters) {
+    @grid_gutters: @gutters;
+  }
+
+  width: 100% + @grid_gutters;
+  margin-left: -@grid_gutters;
   > * {
-    margin-left: @margin;
+    margin-left: @grid_gutters;
   }
-  & when (@margin = compact) {
+
+  & when (@grid_gutters = 0 ) {
     width: 100%;
     margin-left: 0;
-    > * {
-      margin-left: 0;
-    }
-  }
-  & when (@margin = 0) {
-    width: 100%;
-    margin-left: 0;
-    > * {
-      margin-left: 0;
-    }
   }
 }
 
-.span(@unit: 1, @span: 1, @margin: 2.5%, @breakpoint: 620px) {
+
+.span(@span: ~'', @columns: ~'', @gutters: ~'', @breakpoint: ~'') {
+
   display: inline-block;
   vertical-align: top;
-  width: (100 - (@span * @margin)) / @span * @unit + ((@unit - 1) * @margin);
-  margin-left: @margin;
-  margin-right: -.273em;
-  & when (@margin == compact) {
-    width: @unit * (100.0% / @span);
-    margin-left: 0;
-  }
-  & when (@margin == 0) {
-    width: @unit * (100.0% / @span);
-    margin-left: 0;
-  }
   *zoom: 1;
   overflow: hidden;
   *overflow: visible;
-  @media (max-width: @breakpoint) {
-    width: 100 - @margin;
+  margin-right: -.273em;
+
+
+  & when (@columns) {
+    @grid_columns: @columns;
+  }
+
+  & when not (@span) {
+    @span: @grid_columns;
+  }
+
+  & when (@gutters) {
+    @grid_gutters: @gutters;
+  }
+
+  & when (@breakpoint) {
+    @grid_breakpoint: @breakpoint;
+  }
+
+  width: 100% - @grid_gutters;
+
+  @media (min-width: (@grid_breakpoint / 16) +  em) {
+    width: (100% - (@grid_columns * @grid_gutters)) / @grid_columns * @span + ((@span - 1) * @grid_gutters);
+    margin-left: @grid_gutters;
+
+    & when (@grid_gutters = 0) {
+      width: @span * (100.0% / @grid_columns);
+      margin-left: 0;
+    }
   }
 }
 
-.offset(@offset: 0, @amount: 0, @margin: 2.5%, @breakpoint: 620px) {
-  margin-left: (100.0 / @amount) * @offset + @margin;
-  @media (max-width: @breakpoint) {
-    margin-left: 0;
+.offset(@offset: 0, @columns: ~'', @gutters: ~'', @breakpoint: ~'') {
+
+  & when not (@columns) {
+    @grid_columns: @columns;
+  }
+
+  & when not (@gutters) {
+    @grid_gutters: @gutters;
+  }
+
+  & when not (@breakpoint) {
+    @grid_breakpoint: @breakpoint;
+  }
+
+  margin-left: 0;
+  @media (min-width: (@grid_breakpoint / 16) +  em) {
+    margin-left: (100.0 / @grid_columns) * @offset + @grid_gutters;
   }
 }
+
         eos
 
       end
