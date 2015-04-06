@@ -132,13 +132,6 @@ $grid_breakpoint : 620 !default;
 
 @mixin span($span: null, $columns: null, $gutters: null, $breakpoint: null) {
 
-  display: inline-block;
-  vertical-align: top;
-  *zoom: 1;
-  overflow: hidden;
-  *overflow: visible;
-  margin-right: -.273em;
-
   $grid_columns   : $grid_columns;
   $grid_gutters   : $grid_gutters;
   $grid_breakpoint: $grid_breakpoint;
@@ -156,7 +149,13 @@ $grid_breakpoint : 620 !default;
     $grid_breakpoint: $breakpoint;
   }
 
+  display: inline-block;
+  vertical-align: top;
+  *zoom: 1;
+  overflow: hidden;
+  *overflow: visible;
   width: 100% - $grid_gutters;
+  margin-right: -.273em;
 
   @media (min-width: ($grid_breakpoint / 16) +  em) {
     @if $grid_gutters == 0 {
@@ -189,6 +188,7 @@ $grid_breakpoint : 620 !default;
   }
 
   margin-left: 0;
+
   @media (min-width: ($grid_breakpoint / 16) +  em) {
     margin-left: (100.0 / $grid_columns) * $offset + $grid_gutters;
   }
@@ -229,13 +229,6 @@ $grid_breakpoint : 620 !default;
 
 .span(@span: ~'', @columns: ~'', @gutters: ~'', @breakpoint: ~'') {
 
-  display: inline-block;
-  vertical-align: top;
-  *zoom: 1;
-  overflow: hidden;
-  *overflow: visible;
-  margin-right: -.273em;
-
   & when (@columns) {
     @grid_columns: @columns;
   }
@@ -252,7 +245,13 @@ $grid_breakpoint : 620 !default;
     @grid_breakpoint: @breakpoint;
   }
 
+  display: inline-block;
+  vertical-align: top;
+  *zoom: 1;
+  overflow: hidden;
+  *overflow: visible;
   width: 100% - @grid_gutters;
+  margin-right: -.273em;
 
   @media (min-width: (@grid_breakpoint / 16) +  em) {
     width: (100% - (@grid_columns * @grid_gutters)) / @grid_columns * @span + ((@span - 1) * @grid_gutters);
@@ -280,6 +279,7 @@ $grid_breakpoint : 620 !default;
   }
 
   margin-left: 0;
+
   @media (min-width: (@grid_breakpoint / 16) +  em) {
     margin-left: (100.0 / @grid_columns) * @offset + @grid_gutters;
   }
