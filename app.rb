@@ -57,6 +57,8 @@ module Squid
 
 		use Squid::Routes::Index
 		use Squid::Routes::Generator
+		use Squid::Routes::Sass
+		use Squid::Routes::Less
 	end
 end
 
