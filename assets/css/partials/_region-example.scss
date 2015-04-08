@@ -2,8 +2,11 @@
   @include font-rem(16);
   section {
     h3 {
-      margin-bottom: 0;
+      margin-bottom: 20px;
       @include font-em(30);
+      @include at(768) {
+        margin-bottom: 0;
+      }
     }
     form.grid-settings {
       margin-bottom: 30px;
@@ -42,6 +45,13 @@
           background: #f9c3d0;
           font-size: 11px;
           border: 1px solid #e8bfcd;
+          margin-top: 20px;
+          &:first-child {
+            margin-top: 0;
+          }
+          @include at(421) {
+            margin-top: 0;
+          }
         }
       }
     }
