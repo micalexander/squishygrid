@@ -95,6 +95,7 @@ module Squid
 </div>
         eos
     end
+
     def mixin_grid output
       if output == 'sass'
 
@@ -253,7 +254,7 @@ $grid_breakpoint : 620 !default;
   width: 100% - @grid_gutters;
   margin-right: -.273em;
 
-  @media (min-width: (@grid_breakpoint / 16) +  em) {
+  @media (min-width: unit((@grid_breakpoint / 16), em)) {
     width: (100% - (@grid_columns * @grid_gutters)) / @grid_columns * @span + ((@span - 1) * @grid_gutters);
     margin-left: @grid_gutters;
 
@@ -280,7 +281,7 @@ $grid_breakpoint : 620 !default;
 
   margin-left: 0;
 
-  @media (min-width: (@grid_breakpoint / 16) +  em) {
+  @media (min-width: unit((@grid_breakpoint / 16), em)) {
     margin-left: (100.0 / @grid_columns) * @offset + @grid_gutters;
   }
 }
