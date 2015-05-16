@@ -4,9 +4,10 @@
 // -------------------------------------------------------------------------------
 // */
 
-$grid_columns               : 12;
-$grid_gutters               : 2.5%;
-$grid_breakpoint            : 620;
+$span                       : 12;
+$columns                    : 12;
+$gutters                    : 2.5%;
+$at                         : 620;
 
 $color-body                 : #8d5244;
 $color-h1                   : #f9c3d0;
@@ -18,6 +19,7 @@ $color-h6                   : $color-body;
 $color-p                    : $color-body;
 $color-a                    : #fc880f;
 $color-a-hover              : #f9c3d0;
+$color-a-selected           : #f9c3d0;
 $color-font-awesome         : #cccccc;
 $color-selection            : #ffffff;
 $color-selection-backgound  : #f9c3d0;

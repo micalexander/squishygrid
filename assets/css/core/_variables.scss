@@ -4,9 +4,10 @@
 -------------------------------------------------------------------------------
 */
 
-$grid_columns               : 12 !default;
-$grid_gutters               : 2.5% !default;
-$grid_breakpoint            : 620 !default;
+$span                       : 12   !default;
+$columns                    : 12   !default;
+$gutters                    : 2.5% !default;
+$at                         : 620  !default;
 
 $color-body                 : #8d5244 !default;
 $color-h1                   : $color-body !default;
