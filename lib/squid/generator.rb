@@ -1,7 +1,7 @@
 module Squid
 	class Generator
 
-		def generate_grid_styles units, margin, breakpoint, output
+		def generate_grid_styles columns, gutter, at, output
 
 			grid = <<-eos
 .grid {
@@ -13,36 +13,36 @@ module Squid
   }
 }
 		eos
-      (1..units).each do |unit|
-        (unit..units).each do |span|
-          comma = (unit != span or units != span) ? ',' : ' {'
+      (1..columns).each do |column|
+        (column..columns).each do |span|
+          comma = (column != span or columns != span) ? ',' : ' {'
           grid += <<-eos
-.span-#{unit}-of-#{span}#{comma}
+.span-#{column}-of-#{span}#{comma}
           eos
         end
       end
       grid += <<-eos
   display: inline-block;
   vertical-align: top;
-  margin-left: #{margin}%;
+  margin-left: #{gutter}%;
   margin-right: -.273em;
   *zoom: 1;
   overflow: hidden;
   *overflow: visible;
 }
       eos
-			(1..units).each	do |unit|
-        (unit..units).each do |span|
+			(1..columns).each	do |column|
+        (column..columns).each do |span|
 
-          width = (100 - (span * margin)) / span * unit + ((unit - 1) * margin)
+          width = (100 - (span * gutter)) / span * span + ((span - 1) * gutter)
 
-          full_width = (100.0 / span) * unit
+          full_width = (100.0 / span) * span
 
           grid += <<-eos
-.span-#{unit}-of-#{span} {
+.span-#{column}-of-#{span} {
   width: #{width}%;
-  &.offset-#{unit}-of-#{span} {
-    margin-left: #{full_width + margin}%;
+  &.offset-#{column}-of-#{span} {
+    margin-left: #{full_width + gutter}%;
     .compact > & {
       margin-left: #{full_width}%;
     }
@@ -60,7 +60,7 @@ module Squid
 			grid += <<-eos
 .grid,
 .grid.compact {
-  @media (max-width: #{breakpoint}px) {
+  @media (max-width: #{at}px) {
     width: 100%;
     margin-left: 0;
   }
@@ -69,7 +69,7 @@ module Squid
 [class*=' offset-'] {
   .grid &,
   .grid.compact > & {
-    @media (max-width: #{breakpoint}px) {
+    @media (max-width: #{at}px) {
       width: 100%;
       margin-left: 0;
     }
@@ -78,16 +78,16 @@ module Squid
       eos
 		end
 
-    def generate_grid_html units
+    def generate_grid_html columns
 
       i = 0;
       grid = <<-eos
 <div class="grid">
       eos
-      units.times do |unit|
+      columns.times do |span|
         i += 1;
         grid += <<-eos
-  <div class="span-#{i}-of-#{units}">
+  <div class="span-#{i}-of-#{columns}">
   </div>
         eos
       end
@@ -96,7 +96,7 @@ module Squid
         eos
     end
 
-    def mixin_grid output
+    def mixin_grid columns, gutter, at, output
       if output == 'sass'
 
         grid = <<-eos
@@ -106,95 +106,55 @@ module Squid
 
 // Generated at http://squishygrid.com
 
-$grid_columns    : 12 !default;
-$grid_gutters    : 2.5% !default;
-$grid_breakpoint : 620 !default;
+$span   : #{columns}   !default;
+$columns: #{columns}   !default;
+$gutter : #{gutter}  !default;
+$at     : #{at}  !default;
 
-@mixin grid($gutters: null) {
+@mixin grid($gutter: $gutter) {
 
-  $grid_gutters: $grid_gutters;
-
-  @if ($gutters != null) {
-    $grid_gutters: $gutters;
-  }
-
-  @if $grid_gutters == 0 {
+  @if $gutter == 0 {
     width: 100%;
     margin-left: 0;
   }
   @else {
-    width: 100 + $grid_gutters;
-    margin-left: -$grid_gutters;
+    width: 100 + $gutter;
+    margin-left: -$gutter;
     > * {
-      margin-left: $grid_gutters;
+      margin-left: $gutter;
     }
   }
 }
 
-@mixin span($span: null, $columns: null, $gutters: null, $breakpoint: null) {
-
-  $grid_columns   : $grid_columns;
-  $grid_gutters   : $grid_gutters;
-  $grid_breakpoint: $grid_breakpoint;
-
-  @if ($columns != null) {
-    $grid_columns: $columns;
-  }
-  @if ($span == null) {
-    $span: $grid_columns;
-  }
-  @if $gutters != null {
-    $grid_gutters: $gutters;
-  }
-  @if $breakpoint != null {
-    $grid_breakpoint: $breakpoint;
-  }
+@mixin span($span: $columns, $columns: $columns, $gutter: $gutter, $at: $at) {
 
   display: inline-block;
   vertical-align: top;
   *zoom: 1;
   overflow: hidden;
   *overflow: visible;
-  width: 100% - $grid_gutters;
-  margin-right: -.273em;
+  width: 100 - $gutter;
 
-  @media (min-width: ($grid_breakpoint / 16) +  em) {
-    @if $grid_gutters == 0 {
-      width: $span * (100.0% / $grid_columns);
+  @media (min-width: ($at / 16) +  em) {
+    @if $gutter == 0 {
+      width: $span * (100.0% / $columns);
       margin-left: 0;
     }
     @else {
-      width: (100% - ($grid_columns * $grid_gutters)) / $grid_columns * $span + (($span - 1) * $grid_gutters);
-      margin-left: $grid_gutters;
+      width: (100 - ($columns * $gutter)) / $columns * $span + (($span - 1) * $gutter);
+      margin-left: $gutter;
     }
   }
 }
 
-@mixin offset($offset: 0, $columns: null, $gutters: null, $breakpoint: null) {
-
-  $grid_columns   : $grid_columns;
-  $grid_gutters   : $grid_gutters;
-  $grid_breakpoint: $grid_breakpoint;
-
-  @if ($columns != null) {
-    $grid_columns: $columns;
-  }
-
-  @if $gutters != null {
-    $grid_gutters: $gutters;
-  }
-
-  @if $breakpoint != null {
-    $grid_breakpoint: $breakpoint;
-  }
+@mixin offset($offset: 0, $columns: $columns, $gutter: $gutter, $at: $at) {
 
   margin-left: 0;
 
-  @media (min-width: ($grid_breakpoint / 16) +  em) {
-    margin-left: (100.0 / $grid_columns) * $offset + $grid_gutters;
+  @media (min-width: ($at / 16) +  em) {
+    margin-left: (100.0 / $columns) * $offset + $gutter;
   }
 }
-
         eos
 
       elsif output == 'less'
@@ -206,101 +166,72 @@ $grid_breakpoint : 620 !default;
 
 // Generated at http://squishygrid.com
 
-@grid_columns    : 12;
-@grid_gutters    : 2.5%;
-@grid_breakpoint : 620;
+@span   : #{columns};
+@columns: #{columns};
+@gutter : #{gutter};
+@at     : #{at};
 
-.grid(@gutters: ~'') {
+.grid(@gutter: @gutter) {
 
-  & when not (@gutters) {
-    @grid_gutters: @gutters;
-  }
-
-  width: 100% + @grid_gutters;
-  margin-left: -@grid_gutters;
+  width: 100% + @gutter;
+  margin-left: -@gutter;
   > * {
-    margin-left: @grid_gutters;
+    margin-left: @gutter;
+  }
+  > a#main-content {
+    margin-left: auto;
   }
 
-  & when (@grid_gutters = 0 ) {
+  & when (@gutter = 0 ) {
     width: 100%;
     margin-left: 0;
   }
 }
 
-.span(@span: ~'', @columns: ~'', @gutters: ~'', @breakpoint: ~'') {
-
-  & when (@columns) {
-    @grid_columns: @columns;
-  }
-
-  & when not (@span) {
-    @span: @grid_columns;
-  }
-
-  & when (@gutters) {
-    @grid_gutters: @gutters;
-  }
-
-  & when (@breakpoint) {
-    @grid_breakpoint: @breakpoint;
-  }
+.span(@span: @span, @columns: @columns, @gutter: @gutter, @at: @at) {
 
   display: inline-block;
   vertical-align: top;
   *zoom: 1;
   overflow: hidden;
   *overflow: visible;
-  width: 100% - @grid_gutters;
+  width: 100% - @gutter;
   margin-right: -.273em;
 
-  @media (min-width: unit((@grid_breakpoint / 16), em)) {
-    width: (100% - (@grid_columns * @grid_gutters)) / @grid_columns * @span + ((@span - 1) * @grid_gutters);
-    margin-left: @grid_gutters;
+  @media (min-width: unit((@at / 16), em)) {
+    width: (100% - (@columns * @gutter)) / @columns * @span + ((@span - 1) * @gutter);
+    margin-left: @gutter;
 
-    & when (@grid_gutters = 0) {
-      width: @span * (100.0% / @grid_columns);
+    & when (@gutter = 0) {
+      width: @span * (100.0% / @columns);
       margin-left: 0;
     }
   }
 }
 
-.offset(@offset: 0, @columns: ~'', @gutters: ~'', @breakpoint: ~'') {
-
-  & when not (@columns) {
-    @grid_columns: @columns;
-  }
-
-  & when not (@gutters) {
-    @grid_gutters: @gutters;
-  }
-
-  & when not (@breakpoint) {
-    @grid_breakpoint: @breakpoint;
-  }
+.offset(@offset: 0, @columns: @columns, @gutter: @gutter, @at: @at) {
 
   margin-left: 0;
 
-  @media (min-width: unit((@grid_breakpoint / 16), em)) {
-    margin-left: (100.0 / @grid_columns) * @offset + @grid_gutters;
+  @media (min-width: unit((@at / 16), em)) {
+    margin-left: (100.0 / @columns) * @offset + @gutter;
   }
 }
-
         eos
 
       end
     end
 
-    def get_grid units, margin, output, breakpoint, mixin
+    def get_grid columns, gutter, at, output, mixin
 
-      grid_html   = self.generate_grid_html units.to_i
-      grid_mixin  = self.mixin_grid output
+      grid_html   = self.generate_grid_html columns.to_i
+      grid_mixin  = self.mixin_grid columns, gutter, at, output
 
       if mixin == 'on'
         return grid_html, grid_mixin
       end
 
-      grid_styles = self.generate_grid_styles units.to_i, margin.to_f, breakpoint, output
+      grid_styles = self.generate_grid_styles columns.to_i, gutter.to_f, at, output
 
 			if output == 'css'
 

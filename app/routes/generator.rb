@@ -51,41 +51,41 @@ module Squid
 
         begin
 
-          default_units      = 12
-          default_margin     = 2.5
-          default_breakpoint = 420
+          default_columns = 12
+          default_gutter  = 2.5
+          default_at      = 420
 
-          if params[:units] != ''
+          if params[:columns] != ''
 
-            param :units, Integer, error_message: 'Units must be an Integer', raise: true
-
-          else
-
-            params[:units] = default_units
-
-          end
-
-          if params[:margin] != ''
-
-            param :margin, Float, error_message: 'Margin must be a Float', raise: true
+            param :columns, Integer, error_message: 'Units must be an Integer', raise: true
 
           else
 
-            params[:margin] = default_margin
+            params[:columns] = default_columns
 
           end
 
-          if params[:breakpoint] != ''
+          if params[:gutter] != ''
 
-            param :breakpoint, Integer, error_message: 'Breakpoint must be a Integer', raise: true
+            param :gutter, Float, error_message: 'Margin must be a Float', raise: true
 
           else
 
-            params[:breakpoint] = default_breakpoint
+            params[:gutter] = default_gutter
 
           end
 
-          value = generator.get_grid params[:units],  params[:margin], params[:output], params[:breakpoint], params[:mixin]
+          if params[:at] != ''
+
+            param :at, Integer, error_message: 'Breakpoint must be a Integer', raise: true
+
+          else
+
+            params[:at] = default_at
+
+          end
+
+          value = generator.get_grid params[:columns],  params[:gutter], params[:at], params[:output], params[:mixin]
 
         rescue Exception => e
 
@@ -101,15 +101,10 @@ module Squid
 
         {
           html:        glorify(html, fenced_code_blocks: 'enabled', line_numbers: true, wrap: true),
-          # html:        glorify(html, fenced_code_blocks: 'enabled', line_numbers: true, wrap: true),
           html_text:   html_text,
           styles:      glorify(styles, fenced_code_blocks: 'enabled', line_numbers: true, wrap: true),
           styles_text: styles_text
         }.to_json
-
-        # attachment "grid.css"
-        # value
-
       end
     end
   end
