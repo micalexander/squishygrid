@@ -23,8 +23,8 @@ module Squid
       get '/less' do
         generator = Squid::Generator.new
 
-        attachment "grid.less"
-        generator.mixin_grid 'less'
+        attachment "squishygrid.less"
+        generator.mixin_grid 12, 2.5, 420, 'less'
       end
     end
   end

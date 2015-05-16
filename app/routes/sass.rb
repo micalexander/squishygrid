@@ -23,8 +23,8 @@ module Squid
       get '/sass' do
         generator = Squid::Generator.new
 
-        attachment "grid.scss"
-        generator.mixin_grid 'sass'
+        attachment "squishygrid.scss"
+        generator.mixin_grid 12, 2.5, 420, 'sass'
       end
     end
   end
