@@ -1,36 +1,212 @@
 .region.semantic-use
   section
     h3 Semantic Use
-    h4.i.fa-flask Mix it up!
-    p.bottom
-      | Squishygrid also comes in a "Mixin Version". One of the main benefits of using the Mixin Version is the ability to use Squishygrid without having to add any additional class selectors to your HTML markup. This means that you can take full advantage of Squishygrid by using SASS/LESS only.
-    .mixin-use
-      h4.i.fa-file-code-o SASS
+    .magic
+      h4.i.fa-flask Mix it up!
       markdown:
-        SASS anyone? Well Squishygrid comes is sassy right out of the box. You can [download a SASS version here](/sass).
-      markdown:
-        There are three Mixins that make up the SASS Mixin version of Squishygrid, and they are:
-      markdown:
-        ```sass @include grid([$margin-left]);```
-        ```text Default: $margin-left: 2.5%. Excepts 0 or compact, to remove all margin. *Must pass unit type along with unit for example: @include grid(3%);```
+        Download the [SASS](/sass) or [LESS](/less) to take full advantage of Squishygrid without adding any additional HTML markup.
+      .selectors
+        .squishy-selectors
+          h5 Step 1: Make is squishy
+          .text-output
+            .text.i.fa-columns
+              markdown:
+                After ensuring the predefined variables* are set within your project, add the `grid` mixin to the parent's declaration of the elements you wish to squish.
+              markdown:
+                *\*The predefined variables are required by SquishyGrid. They can be changed to affect all SquishyGrid mixins at once, or overridden by being passed on a per mixin basis.*
+            .output.output-toggle
+              h5.i.fa-file-code-o
+                <a class="toggle" href="">SASS</a> | <a class="toggle less-toggle" href="">LESS</a>
+              .code-output
+                markdown:
+                  ```sass
+                  $span   : 12;  // Columns to stretch across
+                  $columns: 12;  // Available columns per row
+                  $gutter : 2.5; // Space between each column
+                  $at     : 420; // Raise one column limit at
+                  ```
+                markdown:
+                  ```sass
+                  @include grid([$gutter]);
+                  ```
+                markdown:
+                  ```sass
+                  .parent-div {
+                      @include grid();
+                  }
 
-        ```sass @include span([$unit], [$span], [$margin-left], [$breakpoint]);```
-        ```text Defaults: $unit: 1, $span: 1, $margin-left: 2.5%, $breakpoint: 620px. Passing nothing will give you a unit that fills the grids' full width. *Must pass unit type along with unit for example: @include span(1,3,3%,768px);```
+                  // or
 
-        ```sass @include offset([$offset], [$amount], [$margin-left], [$breakpoint]);```
-        ```text Defaults: $offset: 0, $amount: 0, $margin-left: 2.5%, $breakpoint: 620px. *Must pass unit type along with unit for example: @include offset(1,3,3%,768px);```
-    .mixin-use
-      h4.i.fa-file-code-o LESS
-      markdown:
-        If LESS is your preference, worry not! You can [download a LESS version here](/less).
-      markdown:
-        There are three Mixins that make up the LESS Mixin version of Squishygrid, and they are:
-      markdown:
-        ```sass .grid([@margin-left]);```
-        ```text Default: @margin-left: 2.5%. Excepts 0 or compact, to remove all margin. *Must pass unit type along with unit for example: .grid(3%);```
+                  .parent-div {
+                    @include grid(3);
+                  }
+                  ```
+              .code-output
+                markdown:
+                  ```sass
+                  @span   :  12; // Columns to stretch across
+                  @columns:  12; // Available columns per row
+                  @gutter : 2.5; // Space between each column
+                  @at     : 420; // Raise one column limit at
+                  ```
+                markdown:
+                  ```sass
+                  .grid([@gutter]);
+                  ```
+                markdown:
+                  ```sass
+                  .parent-div {
+                    .grid;
+                  }
 
-        ```sass .span([@unit], [@span], [@margin-left], [@breakpoint]);```
-        ```text Defaults: @unit: 1, @span: 1, @margin-left: 2.5%, @breakpoint: 620px. Passing nothing will give you a unit that fills the grids' full width. *Must pass unit type along with unit for example: .span(1,3,3%,768px);```
+                  // or
 
-        ```sass .offset([@offset], [@amount], [@margin-left], [@breakpoint]);```
-        ```text Defaults: @offset: 0, @amount: 0, @margin-left: 2.5%, @breakpoint: 620px. *Must pass unit type along with unit for example: .offset(1,3,3%,768px);```
+                  .parent-div {
+                    .grid(3);
+                  }
+                  ```
+        .squishy-selectors
+          h5 Step 2: Add some friends
+          .text-output
+            .text.i.fa-group
+              markdown:
+                Add a `span([x][, y])` mixin to the children of the parent in the previous step.
+              markdown:
+                *The `[x]` represents the total number of columns it stretch across, and the `[y]` represents the total numbers of columns available.*
+            .output.output-toggle
+              h5.i.fa-file-code-o
+                <a class="toggle" href="">SASS</a> | <a class="toggle less-toggle" href="">LESS</a>
+              .code-output
+                markdown:
+                  ```sass
+                    @include span([$span][, $columns][, $gutter][, $at]);
+                  ```
+                markdown:
+                  ```sass
+                  .parent-div {
+                    @include grid();
+                    .child-div {
+                      @include span(4);
+                    }
+                  }
+
+                  // or
+
+                  .parent-div {
+                    @include grid();
+                    .child-div {
+                      @include span(1,4);
+                    }
+                  }
+                  ```
+              .code-output
+                markdown:
+                  ```sass
+                    .span([@span][, @columns][, @gutter][, @at]);
+                  ```
+                markdown:
+                  ```sass
+                  .parent-div {
+                    .grid;
+                    .child-div {
+                      .span(4);
+                    }
+                  }
+
+                  // or
+
+                  .parent-div {
+                    .grid;
+                    .child-div {
+                      .span(1,4);
+                    }
+                  }
+                  ```
+        .squishy-selectors
+          h5 Step 3: Teach them tricks
+          .text-output
+            .text.i.fa-send-o
+              markdown:
+                To offset (push) an element to the right, simply add an `offset([x][, y])` mixin to it.
+              markdown:
+                *The `[x]` represents the total number of columns it should offset by, and the `[y]` represents the total numbers of columns available.*
+            .output.output-toggle
+              h5.i.fa-file-code-o
+                <a class="toggle" href="">SASS</a> | <a class="toggle less-toggle" href="">LESS</a>
+              .code-output
+                markdown:
+                  ```sass
+                    @include offset([$offset[, $columns][, $gutter][, $at]);
+                  ```
+                markdown:
+                  ```sass
+                  .parent-div {
+                    @include grid();
+                    .child-div {
+                      @include offset(1,3);
+                    }
+                  }
+                  ```
+              .code-output
+                markdown:
+                  ```sass
+                    .offset([@offset][, @columns][, @gutter][, @at]);
+                  ```
+                markdown:
+                  ```sass
+                  .parent-div {
+                    .grid;
+                    .child-div {
+                      .offset(1,3);
+                    }
+                  }
+                  ```
+        .squishy-selectors
+          h5 Step 4: Play nice
+          .text-output
+            .text.i.fa-gamepad
+              markdown:
+                Remove or adjust the gutter space between each column by passing in the **SAME** margin amount to the `grid`, `span` and `offset` mixin using the `gutter` parameter.
+              markdown:
+                Control at what browser width all columns of a child element should stretch the full width of a device, by passing the pixel width to the `span` or `offset` mixin using the `at` parameter.
+            .output.output-toggle
+              h5.i.fa-file-code-o
+                <a class="toggle" href="">SASS</a> | <a class="toggle less-toggle" href="">LESS</a>
+              .code-output
+                markdown:
+                  ```sass
+                  .parent-div {
+                    @include grid($gutter: 0);
+                    .child-div {
+                      @include span(1,3,$gutter: 0);
+                    }
+                  }
+
+                  // or
+
+                  .parent-div {
+                    @include grid();
+                    .child-div {
+                      @include span(1,3,$at: 720);
+                    }
+                  }
+                  ```
+              .code-output
+                markdown:
+                  ```sass
+                  .parent-div {
+                    .grid(@gutter: 3);
+                    .child-div {
+                      .span(1,3,@gutter: 3);
+                    }
+                  }
+
+                  // or
+
+                  .parent-div {
+                    .grid();
+                    .child-div {
+                      .span(1,3,@at: 720);
+                    }
+                  }
+                  ```

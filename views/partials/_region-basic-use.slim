@@ -2,14 +2,14 @@
   section
     h3 Basic use
     .magic
-      h4.i.fa-magic The Magic
+      h4.i.fa-pencil Mark it up!
       .selectors
         .squishy-selectors
           h5 Step 1: Make is squishy
           .text-output
             .text.i.fa-columns
               markdown:
-                Add a `grid` class selector to the parent elements that contains the elements you wish to squish.
+                Add a `grid` class to the parent of elements you wish to squish.
             .output
               markdown:
                 ```html
@@ -22,9 +22,9 @@
           .text-output
             .text.i.fa-group
               markdown:
-                Add a `span[x]-of-[y]` class selector to each of the children elements within the `grid` element.
+                Add a `span[x]-of-[y]` class to the children of the parent in the previous step.
               markdown:
-                *The `[x]` represents the total number of columns it should take up, and the `[y]` represents the total numbers of columns that are available.*
+                *The `[x]` represents the total number of columns it stretch across, and the `[y]` represents the total numbers of columns available.*
             .output
               markdown:
                 ```html
@@ -42,8 +42,10 @@
           .text-output
             .text.i.fa-send-o
               markdown:
-                To offset (i.e. push a unit to the right), simply add a class of `offset-[x]-of-[y]` to it.
+                To offset (push) an element to the right, simply add a class of `offset-[x]-of-[y]` to it.
             .output
+              markdown:
+                *The `[x]` represents the total number of columns it should offset by, and the `[y]` represents the total numbers of columns available.*
               markdown:
                 ```html
                 <div class="grid">
