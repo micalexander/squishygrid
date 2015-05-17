@@ -27,15 +27,30 @@
             @include grid(4%);
             .text,
             .output {
-              @include span(6,$gutters: 4%);
-              em code {
-                padding: 2px;
+              @include span(6,$gutter: 4%);
+              p {
+                em {
+                  @include font-em(15);
+                  line-height: 1;
+                  color: $color-blue;
+                  code {
+                    @include font-em(15);
+                    line-height: 1;
+                  }
+                }
               }
             }
             .output .highlight {
               padding: 20px;
               background: #f3e4db;
               border: 1px solid #e6d1c8;
+              code {
+                white-space: pre-wrap;       /* css-3 */
+                white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+                white-space: -pre-wrap;      /* Opera 4-6 */
+                white-space: -o-pre-wrap;    /* Opera 7 */
+                word-wrap: break-word;
+              }
             }
           }
         }
