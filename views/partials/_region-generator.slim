@@ -6,11 +6,11 @@
       .form-wrapper
         form#get-grid.generate.compact action="/generator" method="post"
           .units
-            input#units type="text" name="units" placeholder="Units: 12"/
+            input#columns type="text" name="columns" placeholder="Columns: 12"/
           .margin
-            input#margin type="text" name="margin" placeholder="Margin: 2.5"/
+            input#gutter type="text" name="gutter" placeholder="Gutter: 2.5"/
           .breakpoint
-            input#breakpoint type="text" name="breakpoint" placeholder="Breakpoint: 420"/
+            input#at type="text" name="at" placeholder="At: 420"/
           .output
             select#output name="output"
               option value="css"  CSS
