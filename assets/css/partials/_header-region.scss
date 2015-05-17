@@ -1,10 +1,13 @@
 header.region {
-  @include font-rem(10);
   & > section {
-    @include at(400) {
+    @include font-rem(10);
+    @include at(420) {
+      @include font-rem(11);
+    }
+    @include at(620) {
       @include font-rem(12);
     }
-    @include at(900) {
+    @include at(820) {
       @include font-rem(14);
     }
     @include at(1000) {
@@ -22,16 +25,29 @@ header.region {
         @include at(670) {
           padding-left: 5px;
           text-align: left;
+          margin-bottom: 20px;
+        }
+        @include at(870) {
+          margin-bottom: 30px;
+        }
+        @include at(920) {
+          margin-bottom: 40px;
         }
       }
       h2 {
-        font-size: 2.8em;
+        @include font-em(42);
         text-align: center;
-        margin-bottom: 20px;
         padding-left: 0;
         @include at(670) {
           text-align: left;
           padding-left: 5px;
+          margin-bottom: 20px;
+        }
+        @include at(870) {
+          margin-bottom: 30px;
+        }
+        @include at(920) {
+          margin-bottom: 40px;
         }
       }
       h3 {
