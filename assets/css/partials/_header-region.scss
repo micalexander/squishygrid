@@ -16,9 +16,6 @@ header.region {
       @include at(670) {
         @include span(7);
       }
-      @include at(780) {
-        @include span(8);
-      }
       h1 {
         text-align: center;
         @include font-em(122);
@@ -32,17 +29,9 @@ header.region {
         text-align: center;
         margin-bottom: 20px;
         padding-left: 0;
-        @include at(700) {
+        @include at(670) {
           text-align: left;
           padding-left: 5px;
-        }
-        @include at(1000) {
-          margin-bottom: 30px;
-        }
-        @include at(1150) {
-          margin-bottom: 40px;
-        }
-        @include at(1180) {
         }
       }
       h3 {
@@ -50,10 +39,26 @@ header.region {
         padding: 0 0 20px 0;
         border-bottom: 1px solid rgba(140, 82, 69, 0.3);
       }
-      p {
-        margin-bottom: 20px;
-        padding-bottom: 0;
-        @include font-em(18);
+      ul {
+        display: block;
+        width: 309px;
+        margin: 0 auto 20px;
+        padding: 0;
+        list-style-type: none;
+        @include at(670) {
+          width: auto;
+        }
+        li {
+          @include font-em(22);
+          line-height: 1.4;
+          &:first-child {
+            &:before {
+              top: -5px;
+              left: .45%;
+              @include font-em(24);
+            }
+          }
+        }
       }
     }
     .mascot-wrapper {
@@ -61,7 +66,7 @@ header.region {
         @include span(5);
       }
       @include at(780) {
-        @include span(4);
+        @include span(5);
       }
       .mascot {
         float: none;
