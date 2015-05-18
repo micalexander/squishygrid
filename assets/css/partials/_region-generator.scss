@@ -43,7 +43,7 @@
             margin-bottom: 10px;
             min-height: 26px;
             line-height: 30px;
-            @include span($gutter: 0%);
+            @include span($gutter: 0);
             span {
               color: #a98b82;
               vertical-align: top;
