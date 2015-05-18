@@ -6,7 +6,7 @@
 
 $span                       : 12;
 $columns                    : 12;
-$gutter                     : 2.5%;
+$gutter                     : 2.5;
 $at                         : 620;
 
 $color-body                 : #8d5244;
@@ -25,7 +25,11 @@ $color-selection            : #ffffff;
 $color-selection-backgound  : #f9c3d0;
 $color-inputs               : $color-body;
 $color-blue                 : #1b9af7;
+$color-lightblue            : #def;
+$color-lightbluedark        : #cbd9ea;
 $color-hotpink              : #ed4694;
+$color-lightpinkdark        : #e8bfcd;
+$color-lightpink            : #f9c3d0;
 
 $font-body                  : 'Open sans', Arial, sans-serif;
 $font-h1                    : 'Chicle', cursive;
