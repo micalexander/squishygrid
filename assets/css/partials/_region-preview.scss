@@ -20,10 +20,10 @@
         color: #8d5244;
         font-family: 'Chicle', cursive;
         font-size: 20px;
-        &.aloof {
-          margin-left: -75px;
-        }
         &.chummy {
+          margin-left: -100px;
+        }
+        &.aloof {
           margin-left: 40px;
         }
       }
@@ -42,7 +42,7 @@
           padding-top: 10px;
           color: #fff;
           text-align: center;
-          background: #f9c3d0;
+          background: $color-lightpink;
           font-size: 11px;
           border: 1px solid #e8bfcd;
           margin-top: 20px;
