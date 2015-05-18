@@ -24,10 +24,10 @@
             @include span(3);
           }
           .text-output {
-            @include grid(4%);
+            @include grid(4);
             .text,
             .output {
-              @include span(6,$gutter: 4%);
+              @include span(6,$gutter: 4);
               p {
                 em {
                   @include font-em(15);
