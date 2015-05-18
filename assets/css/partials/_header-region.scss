@@ -75,7 +75,7 @@ header.region {
           }
           &:first-child {
             &:before {
-              top: -5px;
+              top: -10px;
               left: .45%;
               @include font-em(24);
             }
