@@ -118,22 +118,22 @@ $at     : #{at}  !default;
     margin-left: 0;
   }
   @else {
-    width: 100 + $gutter;
-    margin-left: -$gutter;
+    width: 100 + $gutter * 1%;
+    margin-left: -$gutter * 1%;
     > * {
-      margin-left: $gutter;
+      margin-left: $gutter * 1%;
     }
   }
 }
 
-@mixin span($span: $columns, $columns: $columns, $gutter: $gutter, $at: $at) {
+@mixin span($span: $span, $columns: $columns, $gutter: $gutter, $at: $at) {
 
   display: inline-block;
   vertical-align: top;
   *zoom: 1;
   overflow: hidden;
   *overflow: visible;
-  width: 100 - $gutter;
+  width: 100 - $gutter * 1%;
 
   @media (min-width: ($at / 16) +  em) {
     @if $gutter == 0 {
@@ -141,8 +141,8 @@ $at     : #{at}  !default;
       margin-left: 0;
     }
     @else {
-      width: (100 - ($columns * $gutter)) / $columns * $span + (($span - 1) * $gutter);
-      margin-left: $gutter;
+      width: (100 - ($columns * ($gutter * 1%))) / $columns * $span + (($span - 1) * ($gutter * 1%));
+      margin-left: ($gutter * 1%);
     }
   }
 }
@@ -152,7 +152,7 @@ $at     : #{at}  !default;
   margin-left: 0;
 
   @media (min-width: ($at / 16) +  em) {
-    margin-left: (100.0 / $columns) * $offset + $gutter;
+    margin-left: (100.0 / $columns) * $offset + ($gutter * 1%);
   }
 }
         eos
@@ -228,6 +228,7 @@ $at     : #{at}  !default;
       grid_mixin  = self.mixin_grid columns, gutter, at, output
 
       if mixin == 'on'
+
         return grid_html, grid_mixin
       end
 
