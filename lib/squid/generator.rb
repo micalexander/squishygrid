@@ -5,8 +5,8 @@ module Squid
 
 			grid = <<-eos
 .grid {
-  width: 102.5%;
-  margin-left: -2.5%;
+  width: #{100 + gutter}%;
+  margin-left: -#{gutter}%;
   &.compact {
     width: 100%;
     margin-left: 0;
