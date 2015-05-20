@@ -39,7 +39,6 @@
             margin-bottom: 10px;
             min-height: 26px;
             line-height: 30px;
-
             @include span($gutter: 0);
             span {
               color: #a98b82;
@@ -47,13 +46,7 @@
             }
             label {
               position: absolute;
-              left: 0;
-              padding: 5px;
-              line-height: 1.8;
               display: inline-block;
-              color: $color-label;
-              @include font-smoothing();
-              @include transition(all .5s);
             }
             &.mixin {
               height: 33px;
@@ -66,6 +59,23 @@
               margin-bottom: 0;
             }
           }
+          .columns,
+          .gutter,
+          .at,
+          .output {
+            label {
+              left: 0;
+              padding: 5px;
+              line-height: 1.8;
+              color: $color-label;
+              @include font-smoothing();
+            }
+          }
+          .mixin {
+            label {
+              right: 1px;
+            }
+          }
           input[type="text"] {
             padding: 5px;
             border: none;
@@ -73,10 +83,10 @@
             @include border-radius();
           }
           .columns input[type="text"] {
-            padding-left: 75px;
+            padding-left: 80px;
           }
           .gutter input[type="text"] {
-            padding-left: 60px;
+            padding-left: 62px;
           }
           .at input[type="text"] {
             padding-left: 30px;
