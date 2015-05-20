@@ -7,13 +7,9 @@
       @include font-em(30);
     }
     .generate-unit {
-      // margin-bottom: 20px;
       @include at(670) {
         @include span(4);
       }
-      // @include at(800) {
-      //   margin-bottom: 0;
-      // }
       @include at(1000) {
         @include span(2,8);
       }
@@ -32,9 +28,9 @@
           @include input-placeholder {
             color: #a98b82;
           }
-          .units,
-          .margin,
-          .breakpoint,
+          .columns,
+          .gutter,
+          .at,
           .output,
           .mixin,
           .submit {
@@ -43,6 +39,7 @@
             margin-bottom: 10px;
             min-height: 26px;
             line-height: 30px;
+
             @include span($gutter: 0);
             span {
               color: #a98b82;
@@ -50,8 +47,13 @@
             }
             label {
               position: absolute;
-              right: 2px;
+              left: 0;
+              padding: 5px;
+              line-height: 1.8;
               display: inline-block;
+              color: $color-label;
+              @include font-smoothing();
+              @include transition(all .5s);
             }
             &.mixin {
               height: 33px;
@@ -69,6 +71,15 @@
             border: none;
             background: #ffffff;
             @include border-radius();
+          }
+          .columns input[type="text"] {
+            padding-left: 75px;
+          }
+          .gutter input[type="text"] {
+            padding-left: 60px;
+          }
+          .at input[type="text"] {
+            padding-left: 30px;
           }
           input[type="text"],
           select {

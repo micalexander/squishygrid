@@ -5,12 +5,15 @@
       h4.i.fa-paint-brush Create your own
       .form-wrapper
         form#get-grid.generate.compact action="/generator" method="post"
-          .units
-            input#columns type="text" name="columns" placeholder="Columns: 12"/
-          .margin
-            input#gutter type="text" name="gutter" placeholder="Gutter: 2.5"/
-          .breakpoint
-            input#at type="text" name="at" placeholder="At: 420"/
+          .columns
+            label for="columns" Columns:
+            input#columns type="text" name="columns" placeholder="12"/
+          .gutter
+            label for="gutter" Gutter:
+            input#gutter type="text" name="gutter" placeholder="2.5"/
+          .at
+            label for="at" At:
+            input#at type="text" name="at" placeholder="420"/
           .output
             select#output name="output"
               option value="css"  CSS
