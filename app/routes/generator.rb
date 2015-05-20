@@ -57,7 +57,7 @@ module Squid
 
           if params[:columns] != ''
 
-            param :columns, Integer, error_message: 'Units must be an Integer', raise: true
+            param :columns, Integer, error_message: 'Columns must be an Integer', raise: true
 
           else
 
@@ -67,7 +67,7 @@ module Squid
 
           if params[:gutter] != ''
 
-            param :gutter, Float, error_message: 'Margin must be a Float', raise: true
+            param :gutter, Float, error_message: 'Gutter must be a Float', raise: true
 
           else
 
@@ -77,7 +77,7 @@ module Squid
 
           if params[:at] != ''
 
-            param :at, Integer, error_message: 'Breakpoint must be a Integer', raise: true
+            param :at, Integer, error_message: 'At must be a Integer', raise: true
 
           else
 
@@ -87,24 +87,31 @@ module Squid
 
           value = generator.get_grid params[:columns],  params[:gutter], params[:at], params[:output], params[:mixin]
 
+          html        = "```html\n#{value[0]}\n```"
+          html_text   = value[0] # Copy to Clipboard
+          output      = params[:output] == 'less' ? 'sass' : params[:output]
+          styles      = "```#{output}\n#{value[1]}\n```"
+          styles_text = value[1]  # Copy to Clipboard
+
         rescue Exception => e
 
           value = e.options[:error_message]
 
+          html        = "```html\n#{value}\n```"
+          html_text   = value # Copy to Clipboard
+          output      = params[:output] == 'less' ? 'sass' : params[:output]
+          styles      = "```#{output}\n#{value}\n```"
+          styles_text = value  # Copy to Clipboard
+
         end
 
-        html        = "```html\n#{value[0]}\n```"
-        html_text   = value[0]
-        output = params[:output] == 'less' ? 'sass' : params[:output]
-        styles      = "```#{output}\n#{value[1]}\n```"
-        styles_text = value[1]
+          {
+            html:        glorify(html, fenced_code_blocks: 'enabled', line_numbers: true, wrap: true),
+            html_text:   html_text,  # Copy to Clipboard
+            styles:      glorify(styles, fenced_code_blocks: 'enabled', line_numbers: true, wrap: true),
+            styles_text: styles_text  # Copy to Clipboard
+          }.to_json
 
-        {
-          html:        glorify(html, fenced_code_blocks: 'enabled', line_numbers: true, wrap: true),
-          html_text:   html_text,
-          styles:      glorify(styles, fenced_code_blocks: 'enabled', line_numbers: true, wrap: true),
-          styles_text: styles_text
-        }.to_json
       end
     end
   end
