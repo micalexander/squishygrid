@@ -179,9 +179,6 @@ $at     : #{at}  !default;
   > * {
     margin-left: @gutter;
   }
-  > a#main-content {
-    margin-left: auto;
-  }
 
   & when (@gutter = 0 ) {
     width: 100%;
